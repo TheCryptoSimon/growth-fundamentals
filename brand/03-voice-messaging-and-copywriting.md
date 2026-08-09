@@ -276,7 +276,10 @@ Readers remember the first item and the last item of any list or sequence, and s
 | FAQ | First question = the objection that actually blocks the sale, not the easiest one. |
 | Email | Subject and first line carry the whole message; the last line carries the action. |
 
-- **Cap lists at 3–5 items.** Beyond that, everything is middle.
+- **Cap persuasive lists at 3–5 items.** Beyond that, everything is middle. A *reference* list the reader
+  only scans (an included-features strip, a spec table) can run longer — up to about seven before it stops
+  being a list ([../psychology/06-color-and-typography.md](../psychology/06-color-and-typography.md) §8) —
+  but nothing the reader has to weigh belongs in it.
 - **Don't strand an argument in whitespace.** A lone claim under a large empty block reads as thin — the
   reader infers you had nothing else to add. Give it its supporting line, or tighten the block ([visual
   attention and layout](../psychology/05-visual-attention-and-layout.md)).
@@ -352,10 +355,14 @@ Principles behind the slots:
   picture the leak first. Same for "cancel any time" over "no lock-in traps".
 - **Reactance antidote.** Any strong ask creates a pull against it; one short sentence restoring the reader's
   freedom softens it and costs nothing.
-- **Assurance beats pressure long-run.** Pressure cues (stock counters, timers, "X people viewing") lift
-  immediate clicks, but retail field evidence points to markedly more returns and regret afterwards.
-  Assurance microcopy converts nearly as well with far less breakage — and on a trust-first brand, pressure
-  cues are simply off.
+- **Assurance beats pressure long-run.** Pressure cues (stock counters, timers, "X people viewing") tend to
+  lift the immediate click. The cost lands later and off the dashboard that measured the lift: a decision
+  made under manufactured time pressure is a decision the buyer had less reason to endorse afterwards, which
+  shows up as refunds, chargebacks, churn and complaints rather than as a worse conversion rate. Treat that
+  as a mechanism to reason from and a risk to price in, not as a measured effect size — and if you want the
+  number for *your* business, the guardrail metric in
+  [measurement](../ops/14-measurement-and-experimentation.md) §9 is where it comes from. On a trust-first
+  brand the question does not arise: pressure cues are off.
 - **Button text must sound natural said aloud**, in first person — cutesy labels and exclamation marks create
   a small wrongness the reader attributes to the action itself.
 
@@ -373,9 +380,12 @@ Craft defaults, not findings — but the defaults that survive contact with real
 | Sentence rhythm | vary lengths deliberately; never four short sentences in a row | uniform rhythm becomes monotonous and readers disengage |
 | Read-aloud test | every hero, CTA and pricing line | readers subvocalise; awkward-to-say is awkward-to-read |
 
-Also: avoid clusters of repeated starting sounds in body copy (reading research shows they slow readers
-down), keep one idea per sentence, and open a sentence with the object that closed the last one when a
-passage needs to flow. Prefer the shorter synonym unless precision suffers.
+Also: keep one idea per sentence, and open a sentence with the object that closed the last one when a
+passage needs to flow. Prefer the shorter synonym unless precision suffers. Heavy alliteration is worth
+avoiding in body copy — it pulls attention to the sound of the sentence and away from its content, which is
+the opposite of what body copy is for — but treat that as a style preference rather than a finding, and keep
+it for headlines and names where the stickiness is the point
+([02 §6](02-identity-archetype-and-naming.md)).
 
 ## 15. Before / after rewrites — each row names the lever, so a writer can generalise
 

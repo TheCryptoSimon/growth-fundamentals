@@ -223,7 +223,7 @@ definition attached to your entity.
   "@type": "DefinedTerm",
   "@id": "https://example.com/glossary/TERM-SLUG/#term",
   "name": "PLACEHOLDER Term",
-  "description": "PLACEHOLDER 40-60 word standalone definition, identical to the on-page paragraph.",
+  "description": "PLACEHOLDER 40-70 word standalone definition, identical to the on-page paragraph.",
   "url": "https://example.com/glossary/TERM-SLUG/",
   "inDefinedTermSet": { "@id": "https://example.com/glossary/#termset" }
 }

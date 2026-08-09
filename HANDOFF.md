@@ -12,6 +12,7 @@ starting from first principles.
 **Step 1 — get the knowledge pack.**
 
 ```bash
+# If you forked or re-hosted this pack, swap the owner for the account that hosts your copy.
 gh repo clone TheCryptoSimon/growth-fundamentals ~/Projects/growth-fundamentals
 ```
 
@@ -68,3 +69,27 @@ and I have approved it.
 
 **How to report.** Short. What you built, which rule drove each non-obvious choice, what failed the audit and
 what you did about it. Decisions, not questions — bring me a recommendation when you need my call.
+
+---
+
+*Everything above the line ends the paste block. The two sections below are for whoever runs the handoff.*
+
+## Apply it
+
+- [ ] `{{OWNER}}` in the clone command is replaced with the account that actually hosts the pack.
+- [ ] The pack is cloned as a sibling of the new project, not inside it.
+- [ ] Both skill files are installed where the agent on the new machine will find them.
+- [ ] The pack's location is written into the new project's `CLAUDE.md` / `AGENTS.md` as read-only reference.
+- [ ] The agent has read [README.md](README.md) and [00-START-HERE.md](00-START-HERE.md) in full before building.
+- [ ] The brand brief exists, a human filled it in, and it lives in the new project — not in the pack.
+- [ ] The arousal target is stated before any design decision, and cited whenever a choice depends on it.
+- [ ] The conversion audit is wired in as the gate, run at 375px and desktop, before anything is called done.
+
+## Related
+
+- [README.md](README.md) — what the pack contains and the three reading paths
+- [00-START-HERE.md](00-START-HERE.md) — the five decisions, the three engines, and the honesty rails
+- [skills/README.md](skills/README.md) — installing the two agent skills
+- [templates/brand-brief.md](templates/brand-brief.md) — the artifact step 4 produces
+- [ops/16-prompt-pack.md](ops/16-prompt-pack.md) — the prompts that drive each stage
+- [ops/15-launch-checklist-and-build-order.md](ops/15-launch-checklist-and-build-order.md) — the full build order

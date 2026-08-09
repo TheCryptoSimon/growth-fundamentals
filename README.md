@@ -9,8 +9,9 @@ before touching anything.
 
 ## What this pack is
 
-Seventeen numbered documents plus four fill-in templates, covering positioning, identity, voice, consumer
-psychology, page construction, search and AI visibility, measurement, and launch sequencing.
+Seventeen numbered documents, four fill-in templates, two drop-in agent skills, a handoff briefing, and a
+reference note — covering positioning, identity, voice, consumer psychology, page construction, search and
+AI visibility, measurement, and launch sequencing.
 
 Every principle in here is written in three parts:
 
@@ -52,6 +53,14 @@ Both readers are assumed to be starting from nothing: no name, no palette, no co
 
 ## The library
 
+Every file in the pack appears in one of the tables below.
+
+### Start and handoff
+| Doc | What you get |
+|---|---|
+| [00-START-HERE.md](00-START-HERE.md) | The operating manual: five decisions, three engines, build order, honesty rails, definition of done |
+| [HANDOFF.md](HANDOFF.md) | A ready-to-paste briefing that sets a fresh agent session up with the pack and the build order |
+
 ### Brand — decide what the thing *is* before you design it
 | Doc | What you get |
 |---|---|
@@ -88,13 +97,24 @@ Both readers are assumed to be starting from nothing: no name, no palette, no co
 | [ops/15-launch-checklist-and-build-order.md](ops/15-launch-checklist-and-build-order.md) | The end-to-end sequence from empty repo to launched site, with gates between phases |
 | [ops/16-prompt-pack.md](ops/16-prompt-pack.md) | Ready prompts for driving an AI agent through each stage of the build |
 
-### Templates & reference
+### Templates — the fill-in artifacts
 | File | What you get |
 |---|---|
 | [templates/brand-brief.md](templates/brand-brief.md) | The single fill-in document that captures every upstream decision |
 | [templates/page-brief.md](templates/page-brief.md) | A one-page spec to hand an agent before it builds any individual page |
 | [templates/llms.txt.example](templates/llms.txt.example) | A starting `llms.txt` for AI answer engines |
 | [templates/robots.txt.example](templates/robots.txt.example) | A starting `robots.txt` with a sane crawler policy |
+
+### Skills — make an agent use the pack instead of improvising
+| File | What you get |
+|---|---|
+| [skills/README.md](skills/README.md) | How to install both skills globally or project-local, and what each one triggers on |
+| [skills/brand-web-design.skill.md](skills/brand-web-design.skill.md) | The design procedure: arousal target, tokens, layout, copy, then the conversion audit gate |
+| [skills/growth-search.skill.md](skills/growth-search.skill.md) | The search procedure: stack detection, keyword architecture, GEO layer, schema graph, then verification |
+
+### Reference
+| File | What you get |
+|---|---|
 | [reference/README.md](reference/README.md) | Where the ideas come from and what to read next if you want the underlying research |
 
 ---
@@ -160,9 +180,11 @@ Three deliberate constraints:
 - **No third-party text is reproduced here.** Every idea is re-expressed in operational wording. Paid or
   personally-licensed libraries used as background stay on their owner's machine and are not redistributed
   with this pack.
-- **No invented evidence.** You will not find a percentage, a conversion-lift figure, a study citation, or a
-  sample testimonial anywhere in these documents. Findings are described in words ("people tend to judge X
-  as Y when Z"), never dressed up as a statistic that cannot be checked.
+- **No invented evidence.** No research finding in these documents is expressed as a percentage, a
+  conversion-lift figure, a study citation, or a sample testimonial. Findings are described in words
+  ("people tend to judge X as Y when Z"), never dressed up as a statistic that cannot be checked. The
+  numbers that do appear are settings and arithmetic — a saturation value, a contrast ratio, a sample-size
+  formula — not claims about the world.
 - **Manipulation is named, not smuggled.** Where a technique works by exploiting confusion rather than by
   helping someone decide, the doc says so and draws the line.
 

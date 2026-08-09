@@ -1,0 +1,86 @@
+# robots.txt for https://{{DOMAIN}}/
+#
+# ---------------------------------------------------------------------------
+# HOW TO USE THIS FILE
+#
+#   1. Replace every {{PLACEHOLDER}} and delete the rules that do not apply to
+#      your stack. A copied rule for a path you do not have is harmless; a
+#      copied rule for a path you DO have and did not intend to block is not.
+#   2. Deploy it at the ROOT of the domain: https://{{DOMAIN}}/robots.txt.
+#      A robots.txt in a subdirectory is ignored.
+#   3. Verify it on the LIVE domain immediately after launch. Shipping a
+#      "Disallow: /" left over from staging is the single most expensive
+#      launch bug there is, and it is silent.
+#   4. robots.txt controls CRAWLING, not INDEXING. A disallowed URL can still
+#      appear in results if other sites link to it. To keep a page OUT of an
+#      index, let it be crawled and serve a noindex directive — a blocked page
+#      can never be read, so its noindex is never seen.
+#   5. This file is public. Never use it to hint at secret paths; you are
+#      publishing a list of the things you did not want found.
+# ---------------------------------------------------------------------------
+
+# --- Default policy: everything is welcome except private surfaces ---
+User-agent: *
+Allow: /
+
+# Application and account surfaces (no public value, wasted crawl budget)
+Disallow: /{{app}}/
+Disallow: /{{account}}/
+Disallow: /{{admin}}/
+Disallow: /api/
+
+# Post-conversion and transactional pages that should never rank
+Disallow: /{{checkout}}/
+Disallow: /{{thank-you}}/
+Disallow: /{{reset-password}}/
+
+# Internal search results and faceted URLs (near-duplicate content at scale)
+Disallow: /search
+Disallow: /*?{{filter}}=
+Disallow: /*?{{sort}}=
+
+# Tracking parameters — keeps duplicate URLs out of the crawl
+# (Canonical tags remain the primary defence; this is belt and braces.)
+Disallow: /*?utm_
+
+# --- AI crawlers ---
+# Decide this deliberately, then write it down in the brand brief.
+#
+#   ALLOW  if you want to be cited in AI answers. For most new brands this is
+#          the point: being quotable is distribution.
+#   BLOCK  if your content is the product itself, or a licence or contract
+#          requires it.
+#
+# Be aware that some operators run separate agents for training, for live
+# retrieval, and for user-initiated fetches, and that blocking one does not
+# block the others. Keep this list under review — the agent names change.
+# Whatever you choose, make sure your public statements about AI use match
+# what this file actually does.
+
+User-agent: {{AI-CRAWLER-NAME}}
+Allow: /
+
+User-agent: {{AI-CRAWLER-NAME-2}}
+Allow: /
+
+# Example of an explicit block, if you decide to exclude one:
+# User-agent: {{UNWANTED-CRAWLER}}
+# Disallow: /
+
+# --- Aggressive or low-value scrapers ---
+# Only add a bot here once you have seen it misbehave in your server logs.
+# Blocking bots pre-emptively from a list found online mostly blocks nothing.
+# User-agent: {{BAD-BOT}}
+# Disallow: /
+
+# --- Sitemap ---
+# Absolute URL, always. List every sitemap or the sitemap index.
+Sitemap: https://{{DOMAIN}}/sitemap.xml
+
+# --- Pre-launch check ---
+# [ ] No "Disallow: /" under "User-agent: *"
+# [ ] Every Disallow path actually exists and is genuinely private
+# [ ] The sitemap URL returns 200 and lists only canonical, indexable URLs
+# [ ] Staging and preview environments have their OWN robots.txt blocking all,
+#     and are password-protected as well — robots.txt is not access control
+# [ ] The AI-crawler policy matches what the privacy and terms pages claim

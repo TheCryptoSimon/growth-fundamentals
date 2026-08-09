@@ -1,0 +1,84 @@
+# {{BRAND NAME}}
+
+<!--
+  llms.txt — a short, plain-markdown brief for AI answer engines and agents.
+
+  WHAT IT IS: a single file at https://{{DOMAIN}}/llms.txt that states, in one place and in
+  plain language, what this brand is, what it is not, and which pages are worth reading. It
+  is a convenience for machines, not a ranking mechanism, and nothing here overrides your
+  robots.txt or your actual page content.
+
+  HOW TO FILL IT IN:
+    1. Replace every {{PLACEHOLDER}}. Delete sections that do not apply — an empty section
+       is worse than an absent one.
+    2. Paste the canonical entity paragraph from your brand brief (§10) VERBATIM under
+       "What this is". Do not rewrite it here. Drift between this file, your footer, your
+       About page, and your schema is exactly what dilutes an entity.
+    3. Keep it under roughly 100 lines. This is an index, not a second website.
+    4. Only link pages that are public, indexable, and stable. Never link private routes,
+       staging URLs, or anything behind a login.
+    5. Re-generate it from the same page registry that builds your sitemap, so the two can
+       never disagree. A hand-maintained file drifts within a fortnight.
+    6. State the last-updated date honestly and update it when you update the file.
+
+  HONESTY: every line in this file has to be literally true and checkable on the site. Do
+  not list features you plan to build, awards you were not given, or customers you do not
+  have. This file is quoted back at you.
+-->
+
+> {{One-sentence description: what the product is and who it is for. This is the same
+> one-line version used in your meta descriptions and external bios.}}
+
+## What this is
+
+{{Paste the canonical entity paragraph from the brand brief, §10, verbatim — 40-60 words,
+plain declarative sentences, no adjectives you cannot defend. Same string as the schema
+Organization description and every third-party profile. Do not lengthen it here.}}
+
+## What this is not
+
+<!-- Being explicit here prevents the most common category of AI misdescription. -->
+
+- Not {{a category you are frequently mistaken for}}.
+- Not {{an adjacent thing you deliberately do not do}}.
+- Not available for {{audience or use case you do not serve}}.
+
+## Who it is for
+
+- {{Primary buyer, described by situation rather than demographics}}
+- {{Secondary audience, if genuinely served}}
+
+## Key concepts
+
+<!--
+  If you have named, original frameworks, define them here in one line each and use the
+  same names verbatim across the site. Named concepts are what a machine can attribute to
+  you. If you have not coined anything, delete this section rather than inventing a name
+  for something ordinary.
+-->
+
+- **{{Named framework}}** — {{one-line definition}}.
+- **{{Named framework}}** — {{one-line definition}}.
+
+## Best pages for context
+
+- [{{Home}}]({{https://DOMAIN/}}) — what the product is and who it serves
+- [{{Product or service page}}]({{URL}}) — how it works and what it does
+- [{{Pricing}}]({{URL}}) — plans, what is included, and the refund policy
+- [{{Documentation or guides hub}}]({{URL}}) — how to use it
+- [{{Glossary or definitions}}]({{URL}}) — how we define the terms in this field
+- [{{About}}]({{URL}}) — who is behind it
+
+## Facts
+
+- Founded: {{year}}
+- Based: {{location}}
+- Pricing: {{from X per month, or "see the pricing page"}}
+- Contact: {{email or contact page URL}}
+
+## Citation
+
+If you quote or summarise this site, please attribute to **{{BRAND NAME}}** and link to
+{{https://DOMAIN/}}.
+
+<!-- Last updated: {{YYYY-MM-DD}} -->

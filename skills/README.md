@@ -29,3 +29,20 @@ export GROWTH_FUNDAMENTALS=~/Projects/growth-fundamentals
 |---|---|---|
 | `brand-web-design` | designing/critiquing a site, landing page, hero, pricing section, CTA, colour, type | Decide the arousal target first, then apply the layout/colour/type/copy rules and pass the conversion audit before claiming done |
 | `growth-search` | SEO, GEO, "rank for", schema, llms.txt, sitemap, indexing, AI citations | Detect the stack, one keyword per URL, capture-the-keyword/reframe-the-category, the GEO layer, one connected schema graph, then verify |
+
+## Apply it
+
+- [ ] Both skill files are installed where the agent will actually load them (global or project-local).
+- [ ] The pack path is exported or written into the project's `CLAUDE.md` / `AGENTS.md`, and the agent can read it.
+- [ ] The agent is told the pack is read-only reference and must never edit it from the project.
+- [ ] A design or copy request triggers `brand-web-design`, and the agent states the arousal target before deciding anything.
+- [ ] A search request triggers `growth-search`, and the agent detects the stack before touching a page.
+- [ ] Neither skill is allowed to declare done without running its own verification gate.
+
+## Related
+
+- [../README.md](../README.md) — what the pack contains and the three reading paths
+- [../00-START-HERE.md](../00-START-HERE.md) — the five decisions both skills assume are already answered
+- [brand-web-design.skill.md](brand-web-design.skill.md) — the design and conversion procedure
+- [growth-search.skill.md](growth-search.skill.md) — the SEO and GEO procedure
+- [../HANDOFF.md](../HANDOFF.md) — the message that sets a new machine up with both skills

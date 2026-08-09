@@ -70,3 +70,30 @@ choice, not a defect.
 One clear focal point per screen · the single CTA wins by isolation · copy is concrete and second-person ·
 every checklist section in `build/10` passes or is marked as a deliberate exception with a reason · AA
 contrast holds · no horizontal scroll at 375px · reduced-motion honoured · the conversion event fires.
+
+## Apply it
+
+- [ ] `$GF` points at a readable copy of the pack, and `00-START-HERE.md` has been read in full.
+- [ ] A filled-in brand brief exists for this project; nothing was designed before it did.
+- [ ] The arousal target is stated out loud, written into the brief, and cited on every dependent choice.
+- [ ] Tokens exist in one file before any component; nothing hard-codes a colour, size, or duration.
+- [ ] One focal point per viewport and one primary CTA, winning by contrast and isolation.
+- [ ] Copy is concrete, second person, one promise, mechanism on every trust line, no manufactured urgency.
+- [ ] Sections follow the recipes for the chosen arousal target, not the order they came to mind.
+- [ ] The conversion audit ran at 375px and desktop, with screenshots, and every failure was fixed or recorded.
+- [ ] Nothing on the safety-rail list appears anywhere on the page.
+- [ ] The decisions and the rules behind them are documented in the project's own docs.
+
+## Related
+
+- [README.md](README.md) — installing this skill and its sibling
+- [../00-START-HERE.md](../00-START-HERE.md) — the five decisions and the arousal dial this skill assumes
+- [../psychology/04-persuasion-core.md](../psychology/04-persuasion-core.md) — the levers and their ethics line
+- [../psychology/05-visual-attention-and-layout.md](../psychology/05-visual-attention-and-layout.md) — focal points and layout
+- [../psychology/06-color-and-typography.md](../psychology/06-color-and-typography.md) — palette and type decisions
+- [../psychology/07-pricing-psychology.md](../psychology/07-pricing-psychology.md) — any pricing surface
+- [../brand/03-voice-messaging-and-copywriting.md](../brand/03-voice-messaging-and-copywriting.md) — the copy rules
+- [../build/08-page-architecture-and-section-recipes.md](../build/08-page-architecture-and-section-recipes.md) — the section recipes
+- [../build/09-design-system-and-tokens.md](../build/09-design-system-and-tokens.md) — tokens before pixels
+- [../build/10-conversion-audit-checklist.md](../build/10-conversion-audit-checklist.md) — the gate before "done"
+- [growth-search.skill.md](growth-search.skill.md) — the search and AI-visibility counterpart

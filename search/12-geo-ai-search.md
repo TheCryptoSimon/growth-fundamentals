@@ -92,7 +92,7 @@ resolves to nothing once lifted, so it either gets skipped or gets quoted withou
 | Attribute | Rule |
 |---|---|
 | Position | First content block after the H1; before any image, video, or long hero copy |
-| Length | 40–80 words. One paragraph. Never a bullet list |
+| Length | **40–70 words.** One paragraph. Never a bullet list. (FAQ answers run slightly longer, 40–80 — see §7) |
 | Opening | Restate the question as a statement, then answer it in the same sentence |
 | Naming | Name the brand and the category once, in full, in the first sentence |
 | Pronouns | No "we", "our", "this", "it" pointing at anything outside the block |
@@ -215,7 +215,9 @@ trying to be dictionaries.
 
 **How to apply:**
 
-- One URL per term. H1 is the term alone. First paragraph is a 40–60 word standalone definition.
+- One URL per term. H1 is the term alone. First paragraph is a 40–70 word standalone definition — it *is*
+  this page's direct-answer block (§2), so it follows the same spec, and the `DefinedTerm.description` in
+  schema repeats it verbatim.
 - Then: how it works, a worked example, common misunderstanding, related terms.
 - Mark up with `DefinedTerm` inside a `DefinedTermSet`; see [schema and wiring](./13-schema-and-technical-wiring.md).
 - Cover: the category terms, your named frameworks, the jargon your buyers use wrongly, and the
@@ -402,7 +404,7 @@ into one meaningless score, and do not chase a number by asking an assistant lea
 
 ## Apply it
 
-- [ ] Every important page has a 40–80 word direct-answer block in the first 100 words that passes the out-of-context test
+- [ ] Every important page has a 40–70 word direct-answer block in the first 100 words that passes the out-of-context test
 - [ ] That block is wrapped in a stable selector and referenced by `speakable` in the page's structured data
 - [ ] Every H2 is a question a real person asks, each section's first sentence answers it, and no section depends on the one above it — subjects restated in full, comparisons as tables, processes as numbered lists
 - [ ] Three to seven named frameworks exist, each with a dedicated URL, a canonical definition, and verbatim repetition on-site and off

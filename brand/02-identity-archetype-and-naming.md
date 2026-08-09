@@ -217,8 +217,9 @@ spelling or availability.
   encode and retrieve. Two-word names with a shared initial sound are noticeably stickier.
 - **Two or three syllables with a clear stress pattern** are easiest to remember; a strong beat on
   the first syllable reads as a *thing*, later stress reads as an *action*.
-- **A hard opening consonant** gives a name an edge in recall, which is why so many memorable
-  brands start with a plosive.
+- **A hard opening consonant** gives a name a crisper attack, which plausibly helps it survive being heard
+  once across a room. Do not read the many famous brands beginning with a plosive as evidence for this —
+  that is survivorship, not a finding. Tie-breaker only, like everything else in this section.
 
 ### Matching sound to your dial
 

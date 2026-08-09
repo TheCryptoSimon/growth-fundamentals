@@ -35,7 +35,7 @@ the reliable signal.
 
 | Dimension | What it reliably reads as | Mechanism | Build rule |
 |---|---|---|---|
-| **Temperature** (warm ↔ cool) | Warm = activating, alert, impulsive, dominant, time-feels-shorter. Cool = calm, deliberate, trustworthy, patient. | Warmth is tied to physical heat and sun; the association is close to cross-cultural, unlike hue meanings. | Calm brand: cool or neutral base, warm only as a small accent. Energetic brand: warm base is legitimate. Never put a warm saturated field behind a long form or a loading state. |
+| **Temperature** (warm ↔ cool) | Warm = activating, alert, impulsive, dominant, time-feels-shorter. Cool = calm, deliberate, trustworthy, patient. | Warmth is tied to physical heat and sun, so it travels better across cultures than a specific hue's symbolism does — more portable, not universal. Verify it holds in your markets before betting a rebrand on it. | Calm brand: cool or neutral base, warm only as a small accent. Energetic brand: warm base is legitimate. Never put a warm saturated field behind a long form or a loading state. |
 | **Saturation** (vivid ↔ muted) | Vivid = loud, strong, potent, urgent, *bigger*, sooner, more noticeable. Muted = gentle, natural, healthy, premium, private, further away. | Saturation is an arousal cue; arousal is misread as intensity of the thing itself. | Treat saturation as a **budget**. Spend it on one element per viewport. Everything else desaturates. |
 | **Lightness** (light ↔ dark) | Light = easy, light-weight, approachable, natural, safe. Dark = heavy, dense, durable, serious, important, rich. | Weight and importance are physically grounded metaphors. | Light surfaces for "this is easy to start". Dark surfaces for "this is substantial / serious / expensive". |
 
@@ -79,19 +79,27 @@ A calm expert brand typically lands somewhere near `S 20–45 / L 25–45`. A pl
 
 ## 2. Light interface or dark interface
 
-This is not a taste question. The two optimise for different things.
+This is not a taste question, but it is not a settled empirical one either. **There is no reliable general
+finding that light themes convert better or that dark themes are read for longer** — treat the table below
+as convention and craft, matched to the reading conditions each surface actually has, not as a measured
+effect. What *is* well established is narrower and it belongs to legibility: dark backgrounds need lighter
+type weights and slightly looser tracking, and long reading on either theme is hurt by low contrast.
 
 | | Light interface | Dark interface |
 |---|---|---|
-| Optimises for | **Conversion** — signing up, buying, submitting | **Engagement** — dwell time, reading, long sessions |
+| Conventional for | Acting: signing up, buying, submitting a form | Dwelling: reading, editing, monitoring, long sessions |
 | Feels | open, visible, public, easy to act in | enclosed, private, focused, cinematic |
 | Best for | marketing site, pricing page, checkout, forms, onboarding | media players, dashboards, editors, code tools, night-use apps |
 | Watch out | large pure-white fields can feel clinical and cheap without texture | text on dark needs *lighter weights and more tracking*, or it smears |
 
-**Build rule.** Default the marketing site to light; go dark for the logged-in product only if it is a
-long-session tool. Shipping both means every colour token needs a dark-mode pair from day one — decide before
-you build tokens, not after (`../build/09-design-system-and-tokens.md`). If you ship dark, never use the
-saturated accent as a large field (it vibrates); drop its saturation ~10–15% and raise lightness for dark.
+**Build rule.** Default the marketing site to light, because that is what visitors expect of one and
+expectation-matching is a real fluency gain (§10); go dark for the logged-in product if it is a long-session
+tool or is used in the dark. Shipping both means every colour token needs a dark-mode pair from day one —
+decide before you build tokens, not after (`../build/09-design-system-and-tokens.md`). If you ship dark,
+never use the saturated accent as a large field (it vibrates); drop its saturation ~10–15% and raise
+lightness for dark. If you want to claim a theme performs better *for your product*, that is a measurement
+question, and at a new brand's traffic you almost certainly cannot answer it
+(`../ops/14-measurement-and-experimentation.md` §9).
 
 ---
 
@@ -264,8 +272,8 @@ These are close to universal. Treat them as build defaults and deviate only with
 | **Heading line-height** | 1.1–1.25 | Large type needs *less* leading, not more |
 | **Small text (12–14px)** | line-height ~1.6–1.8, plus +0.01–0.03em tracking | Small text needs both more leading and more tracking |
 | **Paragraph spacing** | 0.75–1.25× the body line-height as margin-bottom | Space between paragraphs must clearly exceed space between lines, or the block reads as one slab |
-| **Space above a heading** | ~2× the space below it | Headings belong to the content that follows them (proximity) |
-| **Bullets** | max ~2 lines each, max ~7 per list | Longer than that and it is prose pretending to be a list |
+| **Space above a heading** | ~2× the space below it (up to 3× at a major section break) | Headings belong to the content that follows them (proximity) |
+| **Bullets** | max ~2 lines each. **3–5 per list where the reader must weigh the items**; up to ~7 for a reference list they only scan | Longer than that and it is prose pretending to be a list. Persuasive lists are capped harder — see `../brand/03-voice-messaging-and-copywriting.md` §10 |
 | **Justification** | left-aligned (ragged right) always | Justified web text creates rivers; centred text is only for ≤3 lines |
 | **Hyphenation** | off for headings, optional for narrow-column body | Never hyphenate a headline |
 

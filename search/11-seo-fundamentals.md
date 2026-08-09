@@ -197,7 +197,7 @@ defined direction.
 | **2. Pain / problem** | "How to stop X", "why X keeps happening", "fixing X" | Informational → commercial | 4-8 |
 | **3. Audience / segment** | One page per genuinely distinct customer type | Commercial investigation | 2-5 |
 | **4. Comparison / alternatives** | "X vs Y", "best X for Z", "X alternatives" | Commercial investigation | 3-8 |
-| **5. Glossary** | One short page per term, owning definitional intent | Informational (definitional) | 8-20 |
+| **5. Glossary** | One short page per term, owning definitional intent | Informational (definitional) | 8-15 |
 | **6. Informational blog** | Everything else long-tail, linking up | Informational | Ongoing |
 
 - **Pain pages are usually the strongest converters** on a young site: high intent, lower competition
@@ -248,7 +248,7 @@ The strongest ranking lever you fully control, and it is free.
 ## 7. On-page anatomy
 
 **Title tag.** The highest-leverage string on the page: a ranking input *and* the headline of your
-listing. Plan for roughly 55-60 characters (the real limit is pixel width, so wide capitals truncate
+listing. Plan for roughly 50-60 characters (the real limit is pixel width, so wide capitals truncate
 earlier). Primary term near the front, phrased naturally, then one differentiator — the deliverable,
 the audience, the format or the brand. A trailing brand name is optional: drop it on long titles,
 keep it on short ones and on navigational pages. Unique on every URL; duplicate titles are a
@@ -264,33 +264,31 @@ cannibalisation tell.
 | Guide / blog | `<How-to as searched> (<qualifier>)` | `How to plan a route for 40 daily stops (step by step)` |
 | Local | `<Service> in <place> \| <Brand>` | `Emergency dental care in Riverton \| Ash Lane Dental` |
 
-**Meta description.** Not a ranking factor, but a click factor — and engines rewrite it when it fails
-to match the query, which is itself a signal it was not answering the search. Plan for roughly
-150-160 characters, unique per page, never auto-generated on important pages. Say what the page
-contains and who it is for, with the term phrased naturally (matched words are bolded in the
-listing, which aids scanning). One concrete specific beats one adjective: "plans, limits and setup
-fees" beats "great value". Close with a plain action prompt at the urgency pole, with the
-deliverable at the trust pole.
+**Meta description.** Not a ranking factor but a click factor — and engines rewrite it when it fails
+to match the query, itself a signal it was not answering the search. Roughly 140-155 characters,
+unique per page, never auto-generated on important pages. Say what the page contains and who it is
+for, with the term phrased naturally (matched words are bolded in the listing, which aids scanning).
+One concrete specific beats one adjective: "plans, limits and setup fees" beats "great value". Close
+with an action prompt at the urgency pole, with the deliverable at the trust pole.
 
 **Headings.** Exactly one H1, matching the page's subject and containing the primary term or a close
-variant — the logo is not the H1. H2s are the page's outline in the order a reader needs them; H3s
-nest only inside an H2; never skip a level for styling, since size is CSS's job. Write headings as
-answers or labels a scanner can use, not clever fragments — most readers scan headings and read only
-the section they need. Mirror the questions the SERP showed you.
+variant — the logo is not the H1. H2s are the outline in the order a reader needs them; H3s nest
+only inside an H2; never skip a level for styling, since size is CSS's job. Write headings as
+answers or labels a scanner can use, not clever fragments, and mirror the questions the SERP showed
+you — most readers scan headings and read only the section they need.
 
-**The first 100 words.** Answer the page's target query immediately, in a self-contained paragraph a
+**The first 100 words.** Answer the target query immediately, in a self-contained paragraph a
 stranger could quote without the rest of the page. This serves the impatient human, snippet
 selection, and AI answer engines at once — [12-geo-ai-search.md](12-geo-ai-search.md) covers how to
 construct and reuse that block. Include the primary term once, naturally. Never open with the origin
 story, a definition of the industry, or "In today's fast-paced world".
 
 **Images.** Descriptive filenames before upload (`route-planner-map-view.png`, not `IMG_4821.png`).
-Alt text describes the image for someone who cannot see it — an accessibility requirement first, SEO
-benefit second; decorative images get `alt=""`, never a keyword. "Screenshot of the weekly schedule
-view" is correct; a string of product keywords is spam. Compress, serve modern formats, set explicit
-width and height (prevents layout shift), and lazy-load below-the-fold images only — never the
-largest above-the-fold image. Caption the genuinely useful ones; captions get read more than body
-copy.
+Alt text describes the image for someone who cannot see it — accessibility first, SEO second;
+decorative images get `alt=""`, never a keyword. "Screenshot of the weekly schedule view" is correct;
+a string of product keywords is spam. Compress, serve modern formats, set explicit width and height
+(prevents layout shift), and lazy-load below-the-fold images only — never the largest above-the-fold
+image. Caption the useful ones; captions get read more than body copy.
 
 **Body links.** 3-6 contextual internal links on a substantial page, placed where a reader would want
 the detour, not clustered at the bottom. External links to real sources are a quality signal, not a
@@ -347,8 +345,8 @@ Ship all of this before anything clever. Code-level wiring:
 | **Structured data** | Reflects what is actually on the page; validates cleanly | Marking up content the visitor cannot see |
 
 **Performance is a means, not an end.** Speed is a modest ranking input and a large conversion input.
-Chase the fixes a real user would feel — image weight, font loading, blocking scripts, layout shift
-— and stop optimising the score once the page feels instant. Keeping the front end light by
+Chase fixes a real user would feel — image weight, font loading, blocking scripts, layout shift —
+and stop optimising the score once the page feels instant. Keeping the front end light by
 construction: [../build/09-design-system-and-tokens.md](../build/09-design-system-and-tokens.md).
 
 ## 10. Getting indexed
@@ -396,13 +394,11 @@ referencing. On a brand-new domain with none, the first genuine ones matter disp
 | **Being the resource** | A free tool, calculator, template, dataset or reference table people bookmark | Tools attract links for years |
 
 **Avoid:** bought links, private blog networks, mass guest-post spam, comment and forum drops, link
-exchanges, paid directory farms, anything sold by volume. They violate the guidelines, they are
+exchanges, paid directory farms, anything sold by volume. They violate the guidelines, are
 detectable at scale, and the downside — a manual action or a quiet devaluation — lands on the domain
-you are trying to build.
-
-One editorial link from a genuinely relevant, respected site beats a hundred from anywhere that
-takes anyone. And links are a *lagging* signal of doing something worth linking to: if you cannot
-earn any, the honest question is "what have we published that a stranger would want to cite?"
+you are building. One editorial link from a genuinely relevant, respected site beats a hundred from
+anywhere that takes anyone. And links are a *lagging* signal of doing something worth linking to: if
+you cannot earn any, the honest question is "what have we published that a stranger would cite?"
 
 ## 12. Local SEO, if the brand has a place
 
@@ -437,10 +433,10 @@ exact percentages for a generic new site is guessing.
 | **Months 4-6** | Consolidate cannibalisation, deepen the winning cluster, push internal links to the money pages | A compounding curve rather than a flat line; mid-competition terms come into reach | Starting a new cluster before the first one is finished |
 | **Beyond 6 months** | Head terms become realistic as authority accrues | — | Assuming the curve continues without continued work |
 
-**Leading indicators move first** — pages indexed, impressions, the number of distinct queries you
-appear for, average position on the target cluster, and referring domains. If those climb, traffic
-follows. If they are flat after two months of publishing, something structural is wrong: start with
-indexing (§10) and intent match (§1). Instrumentation:
+**Leading indicators move first** — pages indexed, impressions, distinct queries you appear for,
+average position on the target cluster, referring domains. If those climb, traffic follows. If they
+are flat after two months of publishing, something structural is wrong: start with indexing (§10)
+and intent match (§1). Instrumentation:
 [../ops/14-measurement-and-experimentation.md](../ops/14-measurement-and-experimentation.md).
 
 ## 14. The black-hat list: not worth the risk
@@ -469,12 +465,11 @@ user has not noticed yet, it is not a strategy — it is a debt with an unknown 
 ## Apply it
 
 - [ ] Every planned URL has one primary keyword and one intent class in its page brief before writing.
-- [ ] A keyword-to-URL map exists as a real file and is checked before any new page is briefed.
+- [ ] A keyword-to-URL map exists as a real file, checked before any new page is briefed.
 - [ ] Every target term's SERP has been read, and the page format matches what is ranking.
-- [ ] Titles, metas, H1s and structured data capture the searched term; the body carries the brand
-      frame and never parrots it.
-- [ ] The architecture covers commercial, pain, audience, comparison, glossary and blog tiers, and
-      every informational page links up to the commercial page it supports.
+- [ ] Titles, metas, H1s and schema capture the searched term; the body carries the brand frame.
+- [ ] The architecture covers all six tiers, and every informational page links up to the commercial
+      page it supports.
 - [ ] Every page answers its query in a self-contained paragraph within the first 100 words.
 - [ ] Exactly one H1 per page; headings form the real outline; no level skipped for styling.
 - [ ] Images have descriptive filenames, honest alt text, explicit dimensions and modern formats.
@@ -483,8 +478,8 @@ user has not noticed yet, it is not a strategy — it is a debt with an unknown 
 - [ ] Search Console and Bing verified, sitemap submitted, IndexNow wired, priority URLs inspected.
 - [ ] The link plan uses only legitimate sources; nothing from §14 appears anywhere on the site.
 - [ ] Leading indicators are reviewed monthly, not daily.
-- [ ] The 0-6 month expectation has been stated to whoever funds this, so month two does not trigger
-      a panic rewrite.
+- [ ] The 0-6 month expectation is stated to whoever funds this, so month two does not trigger a
+      panic rewrite.
 
 ## Related
 

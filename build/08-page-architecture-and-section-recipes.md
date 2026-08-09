@@ -82,9 +82,12 @@ two attributes that ease to the product. Confusion at first paint is attributed 
 - **LCP discipline.** The hero visual is almost always the Largest Contentful Paint element: preload it, serve it at rendered size in a modern format, set explicit width and height so nothing shifts, put a flat placeholder tint behind it, and never lazy-load it.
 
 **Fails when.** Two solid buttons compete, so neither reads as the point. A large face hoards attention and
-the CTA loses — faces attract gaze powerfully, so use gaze direction or an arrow to *point at* the CTA, not a
-rival focal element beside it. The headline is a slogan and the reader still cannot say what the product does. A
-carousel rotates the message before it is read. The fold is big type and no information.
+the CTA loses — the fix is to remove or demote the person, *not* to point their gaze at the button. Gaze
+direction is a tie-breaker that recovers a little of the attention a face takes, never all of it, so keep a
+face in the hero only when the person is part of the message
+([../psychology/05-visual-attention-and-layout.md](../psychology/05-visual-attention-and-layout.md) §8). The
+headline is a slogan and the reader still cannot say what the product does. A carousel rotates the message
+before it is read. The fold is big type and no information.
 
 > **Dial.** Calm end: one saturated accent on the CTA and nothing else, generous space, at most one gentle
 > reveal on load. Energetic end: stack contrast channels — colour, size, motion — and put the offer in the headline.
@@ -98,7 +101,8 @@ feel like "a lot" and gets skipped rather than read. Grouping restores the feeli
 link count is higher.
 
 **Must contain.**
-- Three to five primary links. Need more? Group into ≤4 sections and reveal on demand.
+- Three to four primary links, five only if the fifth is genuinely load-bearing — the ≤4 grouping cap
+  applies to navigation like everything else. Need more? Group into ≤4 sections and reveal on demand.
 - One persistent CTA in a fixed position — same place, words, and style on every page. Repetition makes it findable without thought; a redesigned button per page reads as a different offer each time.
 - Descriptive labels ("Pricing" beats "Plans & Options"); a visible current-page state; a logo linking home.
 
@@ -165,7 +169,11 @@ page and trust breaks at the worst possible moment.
 cards read as an unfinished one, and that judgement transfers to the product.
 
 **Must contain.**
-- Three, four, or six cards — never five or seven, which never balance in a grid.
+- Three, four, or six cards — never five or seven, which never balance in a grid. **Six is allowed here and
+  nowhere else in this pack**: the ≤4 cap in
+  [../psychology/04-persuasion-core.md](../psychology/04-persuasion-core.md) governs sets the reader must
+  *choose between*, and a capability grid is scanned, not chosen from. The moment a card carries its own CTA
+  or a price, it becomes a choice — drop back to four.
 - Equal heights enforced by the layout, not by copy that happens to match.
 - Per card: a concrete verb-led title, one sentence of outcome, and a mechanism clause only where it earns its place. Vivid outcome, light process.
 - Consistent icon treatment, or none at all. Mixed icon styles are worse than no icons.
@@ -255,6 +263,47 @@ invented proof is the fastest way to make a trust-first brand unsalvageable.
 **Fails when.** It auto-rotates (each quote gets a fraction of a read); the photos are obviously stock; or
 every quote praises the same thing, which reads as coached.
 
+#### Getting your first proof, when you launch with none
+
+Every doc in this pack forbids inventing proof and tells you to ship honestly without it. That is correct and
+it is not a plan. This is the plan — it is the work of the first 90 days, and it starts before launch.
+
+**What counts as proof on day zero,** in descending order of strength, all available to a brand with no
+customers: a **worked example on real data** (run the thing on a public dataset, your own business, or a
+volunteer's, and publish the method and the output); **named provenance** ("built by two clinicians who ran
+this desk by hand for four years"); a **published method page** a sceptic can audit; a **demonstration** —
+video or interactive — of the product doing the thing; a **credential or licence** with its issuing body
+named; and a **guarantee with teeth**, which is proof because it costs you money if the claim is false. Note
+what is absent: counts, ratings, and logos. Those require customers. Everything above does not.
+
+**Getting the first real testimonial — the sequence.**
+
+1. **Ask at the peak, not at the end.** The moment to ask is right after the customer's first success, not at
+   renewal or at churn. Wire a nudge to that event rather than to a calendar.
+2. **Ask for the story, not the compliment.** Three questions, in this order: *What were you doing before?
+   What almost stopped you? What changed?* You are collecting a situation and a change; a compliment is what
+   you get when you ask "are you happy?", and a compliment is unusable (§3.10 table).
+3. **Write it up and send it back for correction.** Editing for length is fine; putting words in their mouth
+   is not. The sentence they approve is the sentence you publish, and their edits are usually more specific
+   than your draft.
+4. **Get written permission, in writing, naming exactly what you will publish** — the quote, the name, the
+   role, the company, the photo, the surfaces it may appear on, and how they withdraw it. An informal "sure,
+   go ahead" in a chat is not consent to put someone's face and employer on a public page.
+5. **Never pay, discount, or trade for a testimonial** — and if any incentive existed, disclose it on the
+   page. In several markets an undisclosed incentivised endorsement is a regulatory matter, not an ethics
+   one.
+6. **Date it and re-verify it.** A quote from a person whose role has changed, or about a version you have
+   since replaced, is stale rather than false — but it becomes false the day the thing it describes stops
+   being true. Re-check quotes quarterly along with the rest of §5 of the audit.
+
+**The gap-filling rule while you wait:** an empty proof section is better than a padded one, but a *replaced*
+proof section is best. Where a testimonial will eventually sit, ship the mechanism and the worked example
+instead — same slot, same job, no placeholder. Placeholders become production; a worked example does not.
+
+> **Dial.** Calm end: two or three detailed accounts, named, with the drawback left in. Energetic end:
+> volume and recency are legitimate — *once they are real*. Neither end may ship a count it cannot produce
+> on request.
+
 ### 3.11 The pricing section
 
 **Purpose.** Let a qualified reader choose a tier and start, unaided.
@@ -263,7 +312,9 @@ every quote praises the same thing, which reads as coached.
 dedicated pricing page, invert this: prices must be visible on load, because that is what the visitor came for,
 and making them scroll violates the expectation they arrived with.
 
-**Must contain.** Three tiers at most for self-serve; past four, comparison becomes work. The intended tier
+**Must contain.** Three self-serve tiers, plus at most one "talk to us" tier for bespoke work — the same
+count as [../psychology/07-pricing-psychology.md](../psychology/07-pricing-psychology.md) §5. One tier gives
+no comparison; four or more turn the choice into work and push buyers to defer. The intended tier
 centre-stage and visually isolated with an honest label ("Most teams start here"). One CTA per card, only the
 intended tier's button solid. Every difference visible without a click, identical rows collapsed into an
 "included in every plan" strip. Billing period, currency, and what happens after a trial, stated plainly.
@@ -282,7 +333,9 @@ clean question-and-answer pair.
 **Lever.** Questions in the reader's own phrasing are fluent to process and easy for a machine to lift
 verbatim. Question-shaped headings also sit close to how people actually query.
 
-**Must contain.** Six to ten real questions phrased as a person would type them. The direct answer in the
+**Must contain.** Four to eight real questions phrased as a person would type them — past eight it stops
+being an FAQ and becomes an article that should have been its own page
+([../search/12-geo-ai-search.md](../search/12-geo-ai-search.md) §7). The direct answer in the
 first sentence, then detail — never preamble first. Answers complete on their own, without the surrounding page
 for context. The same content in the DOM as in the structured data — mismatched markup is a policy violation,
 not a clever trick; wiring is in [../search/13-schema-and-technical-wiring.md](../search/13-schema-and-technical-wiring.md).
@@ -300,9 +353,12 @@ All items rendered in HTML even when visually collapsed.
 freedom-to-choose line: explicitly acknowledging the reader is free to decline reduces the resistance a hard
 close provokes.
 
-**Must contain.** One sentence restating the core outcome — the hero's promise in different words. The same
-primary action, same label as the header CTA. The assurance line repeated ("Two minutes. No card. Cancel any
-time."). A freedom-to-choose clause ("no commitment," "leave whenever"). Nothing else: no new features, no
+**Must contain.** One sentence restating the core outcome **in the hero's own words** — repeat the promise
+phrasing rather than paraphrasing it. A rephrased promise reads to the visitor as a *new* claim arriving
+unproven at the end of the page, while the repeated phrase closes the loop the hero opened
+([../brand/03-voice-messaging-and-copywriting.md](../brand/03-voice-messaging-and-copywriting.md) §11). The
+same primary action, same label as the header CTA. The assurance line repeated ("Two minutes. No card. Cancel
+any time."). A freedom-to-choose clause ("no commitment," "leave whenever"). Nothing else: no new features, no
 last-minute offer, no second button.
 
 **Fails when** it introduces a new idea, stacks three actions, or applies pressure you cannot back up.
@@ -316,8 +372,8 @@ last-minute offer, no second button.
 navigation repeat (≤4 per group), a contact route, legal links, any required disclaimer stated plainly rather
 than buried, and the copyright line. One quiet CTA is fine; a loud one is not.
 
-**Fails when.** It's a link farm built for crawlers; the disclaimer is set in unreadably small grey type, which
-reads as concealment; or it's noisier than the final CTA above it.
+**Fails when.** It's a link farm; the disclaimer is tiny grey type, which reads as concealment; or it's
+louder than the final CTA above it.
 
 ## 4. Forms and input design
 
@@ -407,6 +463,13 @@ price until the product has been felt; the energetic build leads with the offer 
 visitor arrived with intent and a short window. Both carry objection handling before the ask, both carry an
 honest FAQ, and neither invents proof or urgency — those three are not dial-dependent.
 
+**This is a menu in a fixed order, not a required set.** A first launch frequently has no social proof and no
+interactive element; drop those rows rather than filling them, and the page is eight sections instead of
+twelve. What may not change is the *sequence* of the rows you do keep, and four of them are load-bearing at
+both ends: hero, at least one credibility or mechanism section before the pitch, objection handling before
+the price, and a single final CTA. Cutting guidance for a constrained first launch:
+[../ops/15-launch-checklist-and-build-order.md](../ops/15-launch-checklist-and-build-order.md) §0.1.
+
 ## 8. Skeletons for the secondary pages
 
 | Page | Section order |
@@ -429,6 +492,8 @@ honest FAQ, and neither invents proof or urgency — those three are not dial-de
 - [ ] Every promise on the page is followed by its mechanism ("because…").
 - [ ] Objection handling and the "not for you if" block both sit *before* pricing.
 - [ ] Every testimonial names a situation and is attributable; nothing on the page is invented.
+- [ ] Where proof does not exist yet, the slot carries a mechanism or a worked example — never a placeholder.
+- [ ] Every published quote has written permission naming what may appear, and carries a date.
 - [ ] The FAQ answers the awkward questions, is in the DOM when collapsed, and matches its schema.
 - [ ] The final CTA restates the core outcome, repeats the assurance line, and gives freedom to choose.
 - [ ] Forms are single-column with visible labels, sensible defaults, forgiving formats, inline validation, and no field failing the "who uses this data this week" test.

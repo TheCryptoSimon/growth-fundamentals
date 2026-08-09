@@ -85,3 +85,30 @@ quotable direct answer in the first 100 words; its JSON-LD validates clean with 
 invented ratings; canonical + OG + breadcrumbs present; it is server-rendered; it is in the sitemap and (if
 important) llms.txt; and it links to the right neighbours. Site-level: one source drives sitemap and
 llms.txt, robots allows the AI crawlers, and Search Console / Bing / IndexNow all have the sitemap.
+
+## Apply it
+
+- [ ] `$GF` points at a readable copy of the pack, and the stack was detected before anything was edited.
+- [ ] The edit channel is confirmed: repo, CMS API, CMS UI, or a spec a human applies.
+- [ ] Every URL maps to exactly one primary keyword, decided before a word was written.
+- [ ] Title, meta, H1 and schema capture the literal term; the body holds the brand frame without parroting it.
+- [ ] Every important page opens with a self-contained, quotable direct answer in the first ~100 words.
+- [ ] Named frameworks are used verbatim and identically across site, llms.txt, and schema.
+- [ ] JSON-LD forms one connected graph per page through a single Organization `@id`, with real data only.
+- [ ] Sitemap, llms.txt, robots, canonicals and OG images all derive from one registry, so none can drift.
+- [ ] No private, app, account, or API route appears in the sitemap or llms.txt.
+- [ ] The sitemap is submitted, priority URLs are requested, IndexNow re-pings on deploy.
+- [ ] Measurement covers both surfaces — Search Console for classic, a prompt panel for AI share-of-voice.
+- [ ] Every item in the verification gate above passes before anything is called done.
+
+## Related
+
+- [README.md](README.md) — installing this skill and its sibling
+- [../00-START-HERE.md](../00-START-HERE.md) — the decisions and honesty rails this skill inherits
+- [../search/11-seo-fundamentals.md](../search/11-seo-fundamentals.md) — intent, architecture, on-page, indexing
+- [../search/12-geo-ai-search.md](../search/12-geo-ai-search.md) — direct answers, named frameworks, entity consistency
+- [../search/13-schema-and-technical-wiring.md](../search/13-schema-and-technical-wiring.md) — the JSON-LD cookbook and wiring
+- [../ops/14-measurement-and-experimentation.md](../ops/14-measurement-and-experimentation.md) — what to instrument
+- [../templates/page-brief.md](../templates/page-brief.md) — the per-page spec to fill before writing
+- [../templates/llms.txt.example](../templates/llms.txt.example) · [../templates/robots.txt.example](../templates/robots.txt.example) — the two files to ship
+- [brand-web-design.skill.md](brand-web-design.skill.md) — the design and conversion counterpart

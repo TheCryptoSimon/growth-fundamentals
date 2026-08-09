@@ -16,6 +16,18 @@ not begin building until the five decisions below are answered in writing.
 missing, stop and ask. You may choose *implementations* (a grid, a component name, a spacing value); you may
 not choose *positioning, promise, energy level, or price* — those belong to a human.
 
+**Precedence, when two things in this pack disagree.** Documents in this library overlap deliberately, and
+overlapping documents drift. Resolve conflicts in this fixed order, and do not average two rules together:
+
+1. **The honesty rails** ([Part 4](#part-4--non-negotiable-honesty-rails)) beat every tactic, everywhere.
+2. **The brand brief** beats any default in the pack — it is the specific case.
+3. **The canonical numbers** in [Part 6](#part-6--canonical-numbers-one-value-each) beat any number stated
+   loosely elsewhere.
+4. **The deep doc beats the summary.** On typography, `psychology/06` outranks a passing mention in
+   `build/10`; on pricing, `psychology/07` outranks `build/08`. The document whose subject it is, wins.
+5. **Still ambiguous?** Pick the more conservative option, write down which you picked and why, and flag it
+   — a silently-resolved contradiction is how a defect gets inherited by every page after it.
+
 ---
 
 ## Part 1 — The five decisions before any pixel
@@ -318,6 +330,36 @@ If any of these is false, the site is not done — it is launched, which is a di
 
 ---
 
+## Part 6 — Canonical numbers: one value each
+
+Several quantities recur across this library, and a pack that states the same number three ways teaches an
+agent to pick whichever it saw last. These are the values that win. Where a deep doc gives a range for a
+specific case, the range must sit inside these bounds.
+
+| Quantity | Canonical value | Where it is used |
+|---|---|---|
+| Peer items in one visible, comparable group | **≤ 4** — chunk into labelled groups of ≤4 beyond that | `psychology/04`, `psychology/05`, `build/10` |
+| Cards in a scannable feature grid (not a comparison set) | 3, 4 or 6 — never 5 or 7. Above 4, they must be *browsed*, not *compared* | `build/08` |
+| Bullets in a list | 3–5 for a persuasive list; up to ~7 for a reference list nobody has to weigh | `brand/03`, `psychology/06` |
+| Self-serve pricing tiers | **3**, plus at most one "talk to us" tier | `psychology/07`, `build/08` |
+| Direct-answer block | **40–70 words**, one paragraph, inside the first 100 words. A glossary entry's opening definition is one of these | `search/12`, `build/10`, `templates/page-brief` |
+| FAQ answer | **40–80 words**, answer-first, self-contained | `search/12`, `search/13`, `ops/16` |
+| Canonical entity paragraph | **40–60 words** — it goes in `Organization.description`, so it must stay short | `brand/02`, `search/12`, `templates/brand-brief` |
+| Body text minimum | **16px on mobile** (below it, iOS zooms form fields), 16–18px desktop. 14px is a floor for labels and fine print, never body copy | `psychology/06`, `build/09`, `build/10` |
+| Space above a heading vs below it | **2× the space below**, up to 3× at a major section break | `psychology/05`, `psychology/06`, `build/09` |
+| Contrast | 4.5:1 body · 3:1 large text (~24px+, or ~19px+ bold) and meaningful UI edges | everywhere |
+| Tap target | ≥ 44×44 CSS px, ≥ 8px apart | `psychology/05`, `build/09`, `build/10` |
+| Core Web Vitals | LCP ≤ 2.5s · INP ≤ 200ms · CLS ≤ 0.1, at the 75th percentile on a mid-range phone | `build/08`, `build/10`, `ops/15` |
+| Named frameworks | 3–7 total | `search/12` |
+| Glossary at launch | 8–15 real terms | `search/12` |
+| URLs at launch | 7–12 | `build/08` |
+
+Two of these are hard gates rather than defaults: **contrast** and **tap target** come from published
+accessibility guidance, and failing them is a defect, not a style. The rest are craft defaults — deviate
+when you have a reason, and write the reason down.
+
+---
+
 ## Apply it
 
 - [ ] All five decisions are answered in writing in [templates/brand-brief.md](templates/brand-brief.md).
@@ -331,6 +373,9 @@ If any of these is false, the site is not done — it is launched, which is a di
 - [ ] Tokens were built before pages; keyword-to-URL mapping was done before content.
 - [ ] Every honesty rail has been checked against the live site, not just intended.
 - [ ] The definition of done is green, item by item, before anyone calls it finished.
+- [ ] Where two documents disagreed, the precedence order in "How to use this file" decided it — and the
+      decision was written down rather than averaged.
+- [ ] Every recurring number on the site matches the canonical values in Part 6.
 
 ## Related
 

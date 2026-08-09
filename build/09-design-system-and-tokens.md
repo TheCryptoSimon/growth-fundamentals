@@ -215,9 +215,11 @@ never facts. A dark theme that redefines `--brand-600` has merged the layers and
 | Re-run every contrast check in **both** themes | Passing in light says nothing about dark |
 | Set `color-scheme: light dark` on the root | Native controls, scrollbars and form widgets follow the theme |
 
-**Do you need dark mode at all?** A marketing site optimising for sign-ups usually does not — light suits
-conversion, dark suits long-session engagement. Decide before you build tokens: a second theme added later is
-cheap only if the semantic layer already exists.
+**Do you need dark mode at all?** A marketing site usually does not. The reason is expectation and cost, not
+a proven conversion difference: light is what visitors expect of a marketing site, and every theme you ship
+doubles the contrast checks forever. Dark earns its place on long-session or low-light surfaces — see
+[06 §2](../psychology/06-color-and-typography.md). Decide before you build tokens: a second theme added later
+is cheap only if the semantic layer already exists.
 
 ---
 
@@ -230,7 +232,9 @@ commonest cause of a site "feeling cluttered" when nothing is individually wrong
 - Inside a component `--space-2`→`--space-6` · between components `--space-8`→`--space-12` · between page
   sections `--space-20`→`--space-32`.
 - **Proximity discipline:** the gap *between* groups must be visibly larger than the gap *inside* one — aim
-  for roughly double ([../psychology/05-visual-attention-and-layout.md](../psychology/05-visual-attention-and-layout.md)).
+  for roughly double, and up to triple at a major section break. Same rule stated as type: the space above a
+  heading is ~2× the space below it
+  ([../psychology/05-visual-attention-and-layout.md](../psychology/05-visual-attention-and-layout.md) §4).
 
 **Radius.** One radius language across buttons, inputs, cards and images; mixed radii read as unfinished. Nest
 correctly — an inner radius is the outer minus the padding, or the corners look wrong.

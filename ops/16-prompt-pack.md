@@ -8,26 +8,18 @@ for something and want a specification instead of a vibe.
 
 ## 0. How to use these
 
-**The path convention.** Every prompt tells the agent which document to load first. Replace `{{PACK}}` with
-the path to this library from the agent's working directory — if you cloned the pack as a sibling of the
-project, that is `../growth-fundamentals`. Loading the right doc is what makes the output usable; an agent
-without the context will produce a plausible average of the internet.
+**The path convention.** Replace `{{PACK}}` with the path to this library from the agent's working
+directory — if you cloned the pack as a sibling of the project, that is `../growth-fundamentals`. Loading the
+named doc is what makes the output usable; an ungrounded agent produces an average of the internet.
 
-**Four rules that apply to every prompt here.**
+**Four rules behind every prompt here.** **Ground before generating** — name the file to read; never assume
+the model remembers this pack. **Constrain the output shape** — say how many, in what format, and what must
+not appear. **Force the honesty rails into the prompt itself** — a model asked for "compelling copy" will
+otherwise manufacture evidence. **Ask for the uncertainty** — "list what you had to assume" converts silent
+fabrication into a visible question.
 
-1. **Ground before generating.** Name the file to read. Never assume the model remembers this pack.
-2. **Constrain the output shape.** Say how many, in what format, and what must not appear. Unbounded prompts
-   produce unbounded, unusable output.
-3. **Force the honesty rails into the prompt itself.** Every generative prompt below repeats the ban on
-   invented numbers, testimonials, and urgency, because a model asked for "compelling copy" will otherwise
-   helpfully manufacture evidence.
-4. **Ask for the uncertainty.** A prompt that ends "list what you had to assume" converts silent fabrication
-   into a visible question.
-
-**Chaining them.** P1 → P2 → P3 → P5 produces the brand brief. P6 → P7 → P8 produces and hardens a page.
-P9 → P10 → P11 wires it for search. P12 closes the loop each month.
-
----
+**Chaining them.** P1 → P2 → P3 → P5 fills the brand brief; P6 → P7 → P8 builds and hardens a page;
+P9 → P10 → P11 wires it for search; P12 closes the loop monthly.
 
 ## P1 — Brand discovery interview
 
@@ -46,24 +38,19 @@ trigger moment, then the category and real alternatives, then the promise and it
 mechanism, then the energy target on the calm-to-urgent dial, then the price ladder.
 
 Rules:
-- If an answer is vague, abstract, or could be said by a competitor, say so plainly and
-  ask a sharper follow-up. Do not accept "small businesses" or "we're the best at X".
+- If an answer is vague or could be said by a competitor, say so plainly and ask a sharper
+  follow-up. Do not accept "small businesses" or "we're the best at X".
 - Push for concrete nouns, specific situations, and evidence I already have.
-- Never suggest an answer before I have given mine; you may offer options only after I
-  have tried and failed twice.
+- Never suggest an answer before I have given mine.
 - Track which of the five decisions are still unanswered and tell me the count each turn.
 
-After no more than 25 questions, stop and produce:
-1) A draft brand brief filled from my answers only.
-2) A list of everything you had to leave blank or guess, marked GAP or ASSUMPTION.
-3) The three answers you consider weakest, and why.
+After no more than 25 questions, stop and produce: a draft brand brief filled from my
+answers only; a list of everything you left blank or guessed, marked GAP or ASSUMPTION;
+and the three answers you consider weakest, with reasons.
 ```
 
-**Good output looks like.** One question per turn with visible pushback on vague answers, then a brief whose
-gaps are explicitly marked rather than smoothed over. If the agent filled every field confidently after eight
-questions, it invented most of them.
-
----
+**Good output looks like.** One question per turn with visible pushback, then a brief whose gaps are marked
+rather than smoothed over. A brief filled confidently after eight questions was mostly invented.
 
 ## P2 — Positioning statement generator
 
@@ -92,11 +79,8 @@ BRAND BRIEF:
 {{PASTE BRIEF}}
 ```
 
-**Good output looks like.** Three genuinely different strategic bets with explicit costs, and bracketed proof
-gaps. Three rephrasings of the same sentence means the agent optimised for wording; re-run with the
-differences named more forcefully.
-
----
+**Good output looks like.** Three genuinely different strategic bets with explicit costs and bracketed proof
+gaps. Three rephrasings of one sentence means it optimised for wording — re-run, naming the differences.
 
 ## P3 — Positioning critic (run against P2's output)
 
@@ -112,13 +96,12 @@ You are a sceptical strategist who thinks each of these statements is probably w
 For EACH statement below, run these tests and answer each with a verdict and one line of
 reasoning:
 
-1. INVERSION: could a credible competitor claim the opposite and still sound sane? If
-   no, the claim is empty table stakes.
+1. INVERSION: could a credible competitor claim the opposite and still sound sane? If not,
+   the claim is empty table stakes.
 2. TWENTY NAMES: could someone list twenty real buyers matching this audience this week?
 3. MECHANISM: is there a structural reason it is true, or only an assertion?
 4. FALSIFIABILITY: could a customer prove we broke this promise?
-5. SUBSTITUTION: replace the brand name with a competitor's. Does it still read as true?
-   If yes, it is not positioning.
+5. SUBSTITUTION: swap in a competitor's name. Still true? Then it is not positioning.
 6. COMPREHENSION: would a first-time reader know what the product physically is?
 
 Then: rank the three, name the single strongest sentence across all of them, and write
@@ -130,8 +113,6 @@ STATEMENTS:
 
 **Good output looks like.** Failed verdicts, in plain words, on at least one test per statement. Six passes
 across the board means the critic role did not take.
-
----
 
 ## P4 — Name generator, constrained by the phonetics rules
 
@@ -147,12 +128,10 @@ energy target of {{CALM|MIDDLE|ENERGETIC}} on the calm-to-urgent dial and the pe
 traits {{TRAIT, TRAIT, TRAIT}}.
 
 Constraints, all mandatory:
-- Sound must match the energy target as described in the doc; state which sound choices
-  you used for each name.
+- Sound must match the energy target as described in the doc; state the sound choices used.
 - Two to four syllables. Pronounceable on a first read by a non-native speaker.
 - Passes the bad-phone-line test: spellable correctly after hearing it once.
-- No numbers, no deliberate misspellings of common words, no doubled letters that invite
-  typos, no hyphens.
+- No numbers, no misspelled common words, no typo-inviting doubled letters, no hyphens.
 - Avoid unintended meanings in English, Spanish, German, and French; flag any you spot.
 
 Group the 30 into the name types from the doc (descriptive, suggestive, abstract,
@@ -163,11 +142,8 @@ Do NOT check domain availability or trademarks — you cannot verify these. Inst
 a checklist of what I must verify before adopting any name.
 ```
 
-**Good output looks like.** Type-grouped candidates each carrying a stated association and a risk, plus an
-explicit refusal to claim domain or trademark availability. Any agent that asserts a domain is free is
-guessing.
-
----
+**Good output looks like.** Type-grouped candidates, each with a stated association and risk, plus an explicit
+refusal to claim domain or trademark availability — an agent asserting a domain is free is guessing.
 
 ## P5 — Voice extractor from sample writing
 
@@ -181,16 +157,15 @@ Read {{PACK}}/brand/03-voice-messaging-and-copywriting.md.
 Below are {{N}} samples of my writing that sound like the brand should sound. Analyse
 them and produce a voice specification:
 
-1. Three to five voice traits. For each: a "we do" line and a "we never" line, each with a
-   short example lifted from the samples.
-2. Sentence patterns: typical length, rhythm, how often questions appear, how contractions
-   and first/second person are used.
+1. Three to five voice traits. For each: a "we do" line, a "we never" line, and a short
+   example lifted from the samples.
+2. Sentence patterns: typical length, rhythm, question frequency, contractions, person.
 3. Vocabulary: fifteen words and phrases characteristic of these samples.
 4. A banned-words list of at least twelve items: filler, hype, and category clichés that
    appear in competitors' writing but never in mine.
-5. Punctuation and formatting rules that are actually observable in the samples.
-6. Two rewritten paragraphs: a generic marketing paragraph about {{TOPIC}}, first in the
-   wrong voice, then corrected — with the specific lever named for each change.
+5. Punctuation and formatting rules actually observable in the samples.
+6. A generic marketing paragraph about {{TOPIC}} written in the wrong voice, then
+   corrected — with the specific lever named for each change.
 
 Describe only what is present in the samples. If a trait is not evidenced, say so rather
 than inventing a personality.
@@ -201,8 +176,6 @@ SAMPLES:
 
 **Good output looks like.** Traits that quote the samples, a banned list you recognise as the things you hate,
 and a before/after where each edit names its lever.
-
----
 
 ## P6 — Homepage wireframe and copy
 
@@ -229,10 +202,9 @@ Hard constraints:
 - Exactly ONE primary CTA style across the page; secondaries must be visually quiet.
 - The energy target is {{DIAL}}: apply the inversion table in {{PACK}}/00-START-HERE.md
   and tell me which tactics you inverted because of it.
-- Every claim states its mechanism next to it.
+- Every claim states its mechanism next to it. Second person, present tense, concrete nouns.
 - No statistics, testimonials, logos, ratings, countdowns, or scarcity unless they appear
   verbatim in the brief. Where proof is needed and absent, output [PROOF NEEDED: what].
-- Second person, present tense, concrete nouns.
 
 Finish with: the five-second test answers a stranger should give after seeing the first
 screen (what is it / who is it for / what do I do next).
@@ -241,10 +213,11 @@ BRAND BRIEF:
 {{PASTE BRIEF}}
 ```
 
-**Good output looks like.** Six to nine sections, each discharging a named job, with `[PROOF NEEDED: ...]`
-markers where evidence is missing and an explicit list of tactics inverted for the dial.
-
----
+**Good output looks like.** Eight to twelve sections following the assembly order for your dial in
+`{{PACK}}/build/08-page-architecture-and-section-recipes.md` §7 — fewer is fine if a section has no job yet
+(a first launch often has no social proof), but the sections present must be in that order. Each discharges
+a named job, `[PROOF NEEDED: ...]` markers sit where evidence is missing, and the tactics inverted for the
+dial are listed.
 
 ## P7 — Section-copy rewriter
 
@@ -262,9 +235,8 @@ Apply, in this order:
 2. Convert to second person, present tense.
 3. Attach a mechanism to every claim ("because ..."), using only facts supplied below. If
    the mechanism is unknown, write [MECHANISM NEEDED] — never invent one.
-4. Cut hedges, filler, and any word on the banned list.
-5. Shorten: no sentence over about 25 words; one idea per sentence.
-6. Keep the energy at {{DIAL}} — do not add urgency, exclamation, or intensifiers unless
+4. Cut hedges, filler, and any word on the banned list. One idea per sentence, 25 max.
+5. Keep the energy at {{DIAL}} — do not add urgency, exclamation, or intensifiers unless
    the dial is at the energetic end AND the urgency is literally true.
 
 Do not add new claims, numbers, or proof. Preserve every factual constraint.
@@ -277,10 +249,8 @@ COPY:
 {{PASTE COPY}}
 ```
 
-**Good output looks like.** A row-by-row table where the LEVER column is specific ("abstraction → concrete
-noun") rather than "improved flow", plus `[MECHANISM NEEDED]` markers instead of invented reasons.
-
----
+**Good output looks like.** A table whose LEVER column is specific ("abstraction → concrete noun") rather
+than "improved flow", with `[MECHANISM NEEDED]` markers instead of invented reasons.
 
 ## P8 — Harsh design critique of a screenshot
 
@@ -309,20 +279,15 @@ Step 3 — Walk EVERY line of the conversion checklist. Output a table: CHECK | 
 EVIDENCE FROM THE SCREENSHOT. Never mark PASS on something you cannot see; mark it
 UNVERIFIABLE and say what you would need.
 
-Step 4 — List the failures ranked by damage to conversion, each with a specific fix
-(a concrete instruction, not "improve hierarchy").
-
-Step 5 — The three things that are genuinely good, so we do not break them.
+Step 4 — Failures ranked by damage to conversion, each with a specific fix (a concrete
+instruction, not "improve hierarchy"). Then the three things that are genuinely good.
 
 Do not be encouraging. Do not summarise the page back to me. If the page is broadly fine,
 say what the single highest-leverage change is anyway.
 ```
 
-**Good output looks like.** Failures with pixel-level evidence, `UNVERIFIABLE` used honestly for things a
-screenshot cannot show (contrast ratios, keyboard focus, load performance), and fixes phrased as
-instructions.
-
----
+**Good output looks like.** Failures with pixel-level evidence, `UNVERIFIABLE` used honestly for what a
+screenshot cannot show (contrast ratios, keyboard focus, load speed), and fixes phrased as instructions.
 
 ## P9 — Page SEO brief
 
@@ -336,12 +301,11 @@ Read {{PACK}}/search/11-seo-fundamentals.md and {{PACK}}/templates/page-brief.md
 Produce a completed page brief for a page targeting the primary keyword
 "{{KEYWORD}}" for {{BRAND}}.
 
-Include: URL slug, page job in one line, audience and search intent (informational,
-commercial, transactional, navigational), title tag and meta description within sensible
-length limits, H1, the direct-answer paragraph, an H2/H3 outline with the job of each
-section, the proof elements required, the objections to answer, ONE call to action with
-its microcopy, internal links in and out (name the specific existing pages), schema types,
-an OG image note, and acceptance criteria.
+Include: URL slug, page job in one line, audience and search intent, title tag and meta
+description within sensible length limits, H1, the direct-answer paragraph, an H2/H3
+outline with the job of each section, proof elements, objections to answer, ONE call to
+action with its microcopy, internal links in and out (naming specific existing pages),
+schema types, an OG image note, and acceptance criteria.
 
 Constraints:
 - One primary keyword only. List the existing pages below and state explicitly which one
@@ -355,10 +319,8 @@ EXISTING PAGES AND THEIR KEYWORDS:
 {{PASTE URL MAP}}
 ```
 
-**Good output looks like.** A brief that names a specific cannibalisation risk and how it is resolved, with
-no fabricated volume or difficulty numbers.
-
----
+**Good output looks like.** A brief naming a specific cannibalisation risk and its resolution, with no
+fabricated volume or difficulty numbers.
 
 ## P10 — GEO direct-answer writer
 
@@ -373,29 +335,24 @@ Write the direct-answer block for the page {{URL}}, which answers the question:
 "{{QUESTION}}".
 
 Requirements:
-- One paragraph, roughly 40 to 70 words, placed within the first screen of the page.
-- Completely self-contained: it must remain true and comprehensible when quoted with no
-  surrounding page, no images, and no prior sentence.
+- One paragraph, 40 to 70 words, within the first screen of the page.
+- Self-contained: true and comprehensible when quoted with no surrounding page.
 - Answers the question in the FIRST sentence. No preamble, no "in today's landscape".
 - Names the brand once, naturally, in a way that survives being quoted.
 - Plain declarative sentences; no marketing adjectives; no rhetorical questions.
-- Every factual element must come from the source material below. If the honest answer
-  requires a fact I have not given you, output [FACT NEEDED: ...].
+- Every fact must come from the source material below. If the honest answer needs a fact I
+  have not given you, output [FACT NEEDED: ...].
 
-Then produce:
-1) Three alternative phrasings of the first sentence.
-2) The three follow-up questions a reader most likely asks next, each as an FAQ entry with
-   a 30-to-50-word answer written to the same rules.
-3) The CSS selector or element you would mark as speakable, and why.
+Then produce: three alternative phrasings of the first sentence; the three follow-up
+questions a reader most likely asks next, each as an FAQ entry with a 40-to-80-word answer
+written to the same rules; and the element you would mark as speakable, and why.
 
 SOURCE MATERIAL:
 {{PASTE FACTS}}
 ```
 
-**Good output looks like.** A paragraph you could paste into a chat answer with attribution and it would read
-as complete, plus FAQ entries that answer rather than tease.
-
----
+**Good output looks like.** A paragraph that reads as complete when pasted into a chat answer with
+attribution, plus FAQ entries that answer rather than tease.
 
 ## P11 — Schema generator
 
@@ -408,27 +365,23 @@ Read {{PACK}}/search/13-schema-and-technical-wiring.md.
 Generate the JSON-LD for {{URL}}, a {{PAGE TYPE}} page.
 
 Requirements:
-- One @graph containing every node for this page, cross-referenced by @id. The
-  Organization node uses the site-wide @id "{{SITE_URL}}/#organization" and every other
-  node references it.
-- Include the node types the doc prescribes for this page type, plus WebPage and
-  BreadcrumbList.
+- One @graph containing every node for this page, cross-referenced by @id. The Organization
+  node uses the site-wide @id "{{SITE_URL}}/#organization"; every other node references it.
+- The node types the doc prescribes for this page type, plus WebPage and BreadcrumbList.
 - WebPage carries a speakable property pointing at the direct-answer selector.
 - Offers reflect the real prices below. NEVER output aggregateRating, ratingValue,
-  reviewCount, or any review node — we have no verified reviews and inventing them is
-  both dishonest and a policy violation.
-- Every property must be true and match the page's visible content exactly. Structured
-  data that contradicts the page is worse than none.
+  reviewCount, or any review node — we have no verified reviews, and inventing them is both
+  dishonest and a policy violation.
+- Every property must be true and match the visible content exactly. Structured data that
+  contradicts the page is worse than none.
 - Output valid JSON only in a fenced block, then a plain-language list of every field I
   must verify before shipping, and any field you had to leave as a placeholder.
 
 PAGE FACTS: {{ENTITY NAME, URL, DESCRIPTION, BREADCRUMB TRAIL, PRICES, FAQ ITEMS}}
 ```
 
-**Good output looks like.** A single connected graph, no rating nodes, and an explicit list of fields to
-verify. Any agent that invents a rating has failed the task, not decorated it.
-
----
+**Good output looks like.** A single connected graph, no rating nodes, and an explicit verify-list. An agent
+that invents a rating has failed the task, not decorated it.
 
 ## P12 — Monthly performance review
 
@@ -447,28 +400,25 @@ Below is this month's data and the experiment log. Produce a review in this orde
    what that stage should plausibly achieve.
 3. THE LEAK: name the single biggest leak and the evidence for it. Distinguish clearly
    between measured, directional, and speculative.
-4. SEARCH: which queries gained impressions, whether a page owns each of them, and any
-   page with high impressions and poor click-through (a title and meta problem, not a
-   content problem).
-5. QUALITATIVE: what the exit surveys, five-user tests, and support notes said, in the
+4. SEARCH: which queries gained impressions, whether a page owns each, and any page with
+   high impressions and poor click-through (a title and meta problem, not a content one).
+5. QUALITATIVE: what exit surveys, five-user tests, and support notes said, in the
    customers' own words. Quote them; do not paraphrase into marketing language.
 6. LAST MONTH'S CHANGES: for each entry in the experiment log, keep / revert /
    inconclusive, with the reasoning.
 7. THE ONE THING: the single change to make next month, why it is the highest-leverage
    one, what you expect to move, in which direction, and how much of a window it needs.
 
-Rules: do not claim statistical significance for any comparison unless the sample size
-supports it — say "directional" instead. Do not invent explanations for noise. If a
-number looks wrong, flag it as a possible instrumentation problem before interpreting it.
+Rules: never claim statistical significance unless the sample supports it — say
+"directional". Do not invent explanations for noise. If a number looks wrong, flag it as a
+possible instrumentation problem before interpreting it.
 
 DATA: {{PASTE}}
 EXPERIMENT LOG: {{PASTE}}
 ```
 
-**Good output looks like.** One named change with an expected direction and a window, and explicit
-"directional, not significant" labelling. A review that lists seven opportunities has made no decision.
-
----
+**Good output looks like.** One named change with an expected direction and a window, labelled "directional,
+not significant". A review listing seven opportunities has made no decision.
 
 ## Prompt-writing rules, if you need one this pack does not have
 
@@ -476,14 +426,9 @@ EXPERIMENT LOG: {{PASTE}}
 |---|---|
 | Name the file to read first | Grounding beats instruction; an ungrounded model averages the internet |
 | Give the output shape (count, format, columns) | Unbounded requests produce unusable prose |
-| Assign a stance for critique ("assume it is flawed") | Models default to agreeable, which is useless in a review |
-| Separate generation from criticism into two calls | Self-grading is systematically lenient |
-| Require a marker for missing facts (`[PROOF NEEDED]`) | Converts silent fabrication into a visible question |
-| Repeat the honesty rails inside the prompt | "Compelling" is otherwise read as licence to invent evidence |
-| Ban the things you cannot verify (volumes, ratings, availability) | Stops confident guesses entering a spec |
-| End with "list what you assumed" | The cheapest single line for catching hallucination |
-
----
+| Assign a stance for critique ("assume it is flawed"), in a separate call | Models default to agreeable, and self-grading is lenient |
+| Require a marker for missing facts (`[PROOF NEEDED]`), and repeat the honesty rails inside the prompt | "Compelling" is otherwise read as licence to invent evidence |
+| Ban what the model cannot verify (volumes, ratings, availability) | Stops confident guesses entering a spec |
 
 ## Apply it
 
@@ -491,12 +436,12 @@ EXPERIMENT LOG: {{PASTE}}
 - [ ] Every generative prompt names the document the agent must read first.
 - [ ] The honesty rails are repeated inside each prompt, not just in the pack.
 - [ ] Generation (P2, P6) and criticism (P3, P8) are run as separate calls.
-- [ ] The discovery interview (P1) was run before any copy or design prompt.
-- [ ] Every prompt's output carries explicit `[PROOF NEEDED]` / `[FACT NEEDED]` markers where evidence is absent.
-- [ ] The naming prompt's output was treated as candidates only; trademark and domain checks were done by a human.
-- [ ] The design critique (P8) was run on real screenshots at 375px and desktop, not on a description.
-- [ ] The schema prompt's output was validated in a structured-data testing tool before shipping.
-- [ ] No prompt output containing an invented statistic, rating, or testimonial has been published.
+- [ ] The discovery interview (P1) ran before any copy or design prompt, and outputs carry explicit
+      `[PROOF NEEDED]` / `[FACT NEEDED]` markers wherever evidence is absent.
+- [ ] Naming output was treated as candidates only; trademark and domain checks were done by a human.
+- [ ] The design critique (P8) ran on real screenshots at 375px and desktop, not on a description.
+- [ ] Schema output was validated in a structured-data testing tool, and nothing with an invented
+      statistic, rating, or testimonial has been published.
 - [ ] The monthly review (P12) ends in one decision with an owner, and it lands in the experiment log.
 
 ## Related
@@ -508,4 +453,3 @@ EXPERIMENT LOG: {{PASTE}}
 - [../templates/page-brief.md](../templates/page-brief.md) — what P9 produces
 - [../brand/03-voice-messaging-and-copywriting.md](../brand/03-voice-messaging-and-copywriting.md) — the voice rules P5 and P7 enforce
 - [../build/10-conversion-audit-checklist.md](../build/10-conversion-audit-checklist.md) — the gate P8 grades against
-- [../search/12-geo-ai-search.md](../search/12-geo-ai-search.md) — the method behind P10

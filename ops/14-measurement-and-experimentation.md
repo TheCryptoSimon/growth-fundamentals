@@ -25,8 +25,6 @@ Two corollaries you will need to defend:
 - **Definitions are frozen for the quarter.** Redefining "engaged visit" mid-quarter destroys the only thing
   early-stage measurement has: comparability with last month.
 
----
-
 ## 2. One north-star metric, two or three inputs
 
 **What it is.** The single number that goes up when the business is genuinely working, not when activity
@@ -68,8 +66,6 @@ Measurement targets shift with the brand's energy setting (see
 | Do not measure | Urgency-response; you are not running urgency | Depth-of-read as a primary metric |
 | Success on a first visit | An informed *return*, not a same-session purchase | A same-session purchase |
 
----
-
 ## 3. The funnel, with exactly one metric per stage
 
 Six stages. One metric each. The value of the funnel is not the numbers, it is the **ratios between adjacent
@@ -89,15 +85,12 @@ scrolled past the first screen *and* lasted beyond a trivial threshold *and* fir
 event (a click on an in-page link, a CTA, a pricing toggle, an FAQ open). Write the exact rule into the
 events file so nobody re-invents it next quarter.
 
-**Reading the leak — arithmetic illustration with placeholder numbers (not measured data):** say a month
-gives 10,000 impressions → 400 visits → 120 engaged → 12 leads → 3 customers. The visit-to-engaged step
-holds 30%, the engaged-to-lead step holds 10%. The weakest ratio, relative to what that stage should
-plausibly do, is where the next change goes. Fixing the stage *before* the leak just sends more people into
-the same hole.
+**Reading the leak — arithmetic illustration with placeholder numbers, not measured data:** say a month gives
+10,000 impressions → 400 visits → 120 engaged → 12 leads → 3 customers. The weakest ratio, relative to what
+that stage should plausibly do, is where the next change goes. Fixing the stage *before* the leak just sends
+more people into the same hole.
 
 **Rule.** Work the largest leak, not the most interesting one. Re-derive the leak monthly; it moves.
-
----
 
 ## 4. Event taxonomy: name things once, compare them forever
 
@@ -141,8 +134,6 @@ people name the same action differently. Naming is not bureaucracy, it is the wh
 **Verification rule.** An event that has not been observed firing in a real browser does not exist. Test each
 one once, from a phone, before launch.
 
----
-
 ## 5. The minimum stack, and the privacy trade-off
 
 **What a new brand actually needs** — five things, none of them expensive:
@@ -179,8 +170,6 @@ What you give up, stated honestly:
 does, which means the privacy page and the banner policy change in the same commit. No exceptions, no "we
 will update the copy later."
 
----
-
 ## 6. Search Console: what its four numbers actually mean
 
 Free, first-party, and the only place you see how search itself perceives you. Four headline metrics, each
@@ -206,8 +195,6 @@ routinely misread.
   your analytics; they measure different things and will never agree.
 
 Deeper treatment in [../search/11-seo-fundamentals.md](../search/11-seo-fundamentals.md).
-
----
 
 ## 7. Session replay and heatmaps: good eyes, bad statistics
 
@@ -235,8 +222,6 @@ depth, or attention into a coloured overlay.
 **Rule.** Use replay and heatmaps to *generate hypotheses*, never to *prove* anything. Never quote a heatmap
 percentage in a decision document. If a replay suggests a problem, confirm it with an event count or a
 five-user test before you rebuild anything.
-
----
 
 ## 8. Qualitative instruments, which beat analytics at low traffic
 
@@ -269,8 +254,6 @@ usable sentences, the second produces politeness. Keep it out of the way on mobi
 company does, who it is for, and what they were meant to do. It is the cheapest test in this document and
 the one most likely to change your headline. See
 [../brand/03-voice-messaging-and-copywriting.md](../brand/03-voice-messaging-and-copywriting.md).
-
----
 
 ## 9. A/B testing, honestly
 
@@ -330,8 +313,6 @@ this is the most common way small teams get fooled, and it feels like diligence 
 the rails in [../00-START-HERE.md](../00-START-HERE.md) sit above tactics, and the reason a guardrail metric
 is mandatory.
 
----
-
 ## 10. What to do instead when traffic is small (which it is)
 
 New brands almost never have test-grade traffic. This is not a handicap — it is a different method.
@@ -353,8 +334,6 @@ New brands almost never have test-grade traffic. This is not a handicap — it i
 
 **State this posture out loud in the experiment log:** "Directional, not statistically significant." A team
 that says that stays honest. A team that says "we saw a lift" from 200 sessions builds a strategy on noise.
-
----
 
 ## 11. The experiment log
 
@@ -383,8 +362,6 @@ Links: commit abc1234 · brief docs/page-briefs/contact.md
 Log the *reason* in "because" form, so the log accumulates a model of your buyer rather than a list of
 tweaks. One change per entry; two changes in one window is one entry with an honest note that you cannot
 attribute the result.
-
----
 
 ## 12. Attribution, and how to stay sane about it
 
@@ -420,8 +397,6 @@ channel for a considered purchase — someone recommending you in a conversation
 **The posture:** a number you know is approximate, used for direction, beats a precise number you quietly
 know is wrong.
 
----
-
 ## 13. The review cadence
 
 Measurement without a recurring meeting decays into a dashboard nobody opens.
@@ -435,8 +410,6 @@ Measurement without a recurring meeting decays into a dashboard nobody opens.
 **Meeting rule.** Every review ends with one decision and one owner. A review that ends with observations is
 a newsletter.
 
----
-
 ## 14. Anti-patterns
 
 | Anti-pattern | Why it is corrosive |
@@ -444,14 +417,10 @@ a newsletter.
 | A dashboard with no owner | Nobody acts; everybody feels informed |
 | Reporting cumulative totals | They only ever rise; they cannot indicate a problem |
 | Redefining a metric mid-quarter | Destroys the comparison, usually right when it turns bad |
-| Quoting a lift from an underpowered test | Builds strategy on noise, and the noise gets institutionalised |
-| Choosing the window after seeing the data | The most respectable-looking form of cherry-picking |
+| Quoting a lift from an underpowered test, or picking the window after seeing the data | Builds strategy on noise, and institutionalises it |
 | Time-on-page as a marketing-site success metric | Rewards a page that is hard to understand |
 | Tracking personal data "just in case" | Legal exposure, and it makes your privacy copy false |
-| Testing a manipulative variant to see if it wins | It often wins short-term; the rails exist for exactly this |
 | A vanity chart in an investor update that you do not use internally | If it does not drive your decisions, it should not drive theirs |
-
----
 
 ## Apply it
 
@@ -461,10 +430,10 @@ a newsletter.
 - [ ] `EVENTS.md` exists, uses `object_action` naming, caps the vocabulary, and marks one primary conversion.
 - [ ] Every event has been observed firing in a real browser, on a phone, before launch.
 - [ ] Analytics is first-party and cookieless, or the consent banner and privacy copy match reality exactly.
-- [ ] Search Console and its Bing equivalent are verified, with the sitemap submitted.
-- [ ] A scheduled test submission proves the primary form still delivers to a human inbox.
-- [ ] Replay and heatmaps, if used, are privacy-masked, split by device, and used only to form hypotheses.
-- [ ] A five-user test has been run on the two most important pages, and the notes exist.
+- [ ] Search Console and its Bing equivalent are verified, and a scheduled test submission proves the
+      primary form still delivers to a human inbox.
+- [ ] Replay and heatmaps, if used, are privacy-masked, split by device, and used only for hypotheses.
+- [ ] A five-user test has been run on the two most important pages and the notes exist.
 - [ ] Before any A/B test: required sample computed, end date fixed, one primary metric, one guardrail.
 - [ ] Below test-grade traffic, changes ship as pre-registered sequential redesigns and are labelled directional.
 - [ ] The experiment log records failures and inconclusive results, not only wins.
@@ -478,5 +447,4 @@ a newsletter.
 - [../build/10-conversion-audit-checklist.md](../build/10-conversion-audit-checklist.md) — the prior to apply when you cannot test
 - [../build/08-page-architecture-and-section-recipes.md](../build/08-page-architecture-and-section-recipes.md) — the pages these metrics grade
 - [../search/11-seo-fundamentals.md](../search/11-seo-fundamentals.md) — reading search data properly
-- [../psychology/07-pricing-psychology.md](../psychology/07-pricing-psychology.md) — why guardrail metrics matter when you change price
 - [../templates/page-brief.md](../templates/page-brief.md) — where a page's acceptance criteria and metric are recorded

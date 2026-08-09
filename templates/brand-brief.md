@@ -239,8 +239,8 @@ handles secured `<<YES/NO>>`
 **Descriptor** (what follows the name in a directory listing, ~5 words): `<<...>>`
 **Tagline** (optional, and only if it earns its place): `<<...>>`
 
-**Canonical entity paragraph** (60–90 words, plain declarative, no adjectives you cannot defend — this exact
-text goes everywhere):
+**Canonical entity paragraph** (**40–60 words**, plain declarative, no adjectives you cannot defend — this
+exact text goes everywhere, including `Organization.description` in schema, which is why it must stay short):
 
 > `<<BRAND>> is a `<<category>>` for `<<audience>>`. It `<<what it does, concretely>>` by
 > `<<mechanism>>`. `<<One differentiating fact.>>` `<<Founded/based/operating detail if useful.>>`

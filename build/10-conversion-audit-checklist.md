@@ -115,7 +115,7 @@ combined stack of size, contrast, and isolation — "more colours" never substit
 | 2.2 | Greyscale test: hierarchy survives desaturation | M |
 | 2.3 | One saturated accent per viewport, on the primary action | M |
 | 2.4 | Hierarchy built with spacing and size before colour — headings sit closer to their own content than to the block above | M |
-| 2.5 | No group of more than four peer items without sub-grouping | m |
+| 2.5 | No *comparative* group of more than four peer items without sub-grouping. A scannable grid the reader does not choose from may run to six — if any item carries its own price or CTA, it is a choice and the cap is four | m |
 | 2.6 | Whitespace is consistent — the spacing scale is used, not ad-hoc pixel values | m |
 | 2.7 | No instruction depends on colour alone ("the button below", never "the green button") | M |
 | 2.8 | Related elements are visually grouped; unrelated ones are separated | m |
@@ -279,7 +279,7 @@ behind a toggle.
 | # | Check | Sev |
 |---|---|---|
 | 10.1 | 375px wide: no horizontal scroll. Verify `document.documentElement.scrollWidth === window.innerWidth` | B |
-| 10.2 | No text smaller than 14px on mobile body copy | M |
+| 10.2 | Mobile body copy is **≥16px** — below that iOS zooms form fields on focus, and the layout jumps mid-conversion. 14px is a floor for labels, captions and fine print only, never for body text | M |
 | 10.3 | Tap targets at least 44×44 CSS px with 8px between adjacent targets | M |
 | 10.4 | Contrast meets AA: 4.5:1 body text, 3:1 large text and meaningful UI edges — measured, not eyeballed | B |
 | 10.5 | Text over imagery is legible across the whole text block, not only where the scrim happens to sit | M |
@@ -303,7 +303,7 @@ behind a toggle.
 |---|---|---|
 | 11.1 | Exactly one primary keyword or query intent per URL; no other page on the site targets the same one | M |
 | 11.2 | Title, meta description, and `h1` capture that intent; the body reads in the brand's own frame | M |
-| 11.3 | A self-contained direct answer appears within the first screenful — roughly 40 to 60 words that stand alone if lifted out of context and cited | M |
+| 11.3 | A self-contained direct answer appears within the first screenful — 40 to 70 words that stand alone if lifted out of context and cited | M |
 | 11.4 | Definitions and key facts are stated once, canonically, and reused verbatim across the site | m |
 | 11.5 | Structured data present, of the correct type, and validating clean | M |
 | 11.6 | Schema describes only what is on the page; no rating or review markup without real, displayed reviews | B |

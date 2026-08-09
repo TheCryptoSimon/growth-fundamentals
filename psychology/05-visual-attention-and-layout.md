@@ -103,7 +103,7 @@ disagree, the visitor's model of your offer is wrong before comprehension starts
 
 | Principle | What it says | Layout application (concrete) |
 |---|---|---|
-| **Proximity** | Near things read as one unit | Heading sits closer to its own body than to the section above — a common ratio is roughly 1:3 (space above a heading ≈ 3× the space below it). Form labels hug their inputs. This one rule fixes most "confusing page" complaints. |
+| **Proximity** | Near things read as one unit | Heading sits closer to its own body than to the section above — **the space above a heading is ~2× the space below it**, stretching toward 3× at a major section break. Form labels hug their inputs. This one rule fixes most "confusing page" complaints. |
 | **Similarity** | Same shape/colour/size read as one set | All items of the same rank share one card style, one icon style, one type step. If two items look different, the reader assumes they *are* different — never vary style for visual interest alone. |
 | **Common region** | A shared container beats proximity | Bind a cluster (a feature triad, a filter chip group) inside one soft panel or a tinted band so it reads as one family even when spacing is inconsistent. Use this to separate two adjacent groups without adding a divider. |
 | **Continuity** | The eye follows lines and alignment | Keep one strong left alignment edge down a text column; the eye rides it downward for free. Every unnecessary alignment change is a stop sign. Break continuity deliberately at a section boundary. |
@@ -115,6 +115,13 @@ counted rather than perceived. Cap groups at four. If you have seven features, c
 clusters instead of one row of seven. A merely-labelled grouping makes a list feel organised even when the
 split is arbitrary — this is a genuine effect, and it is also the point at which grouping can become
 misleading, so keep the labels honest.
+
+**The cap applies to sets the reader must *weigh*, not to sets they merely *scan*.** Four is the ceiling for
+anything comparative — pricing tiers, options, competing paths, nav sections — because each extra item
+multiplies the comparisons. A feature grid the reader browses rather than chooses from can run to six cards
+without cost, provided nothing in it is a decision (see
+[08 §3.6](../build/08-page-architecture-and-section-recipes.md)). Ask which kind of set it is before you
+apply the number: *does the reader have to pick one?*
 
 ---
 
@@ -187,9 +194,12 @@ you want the second kind.
 | **Pointing hand** | Very strong grab, strong direction | High-arousal end only; reads as pushy on the calm end |
 
 **The face problem.** A photographed human in a hero will usually out-compete the button you actually want
-clicked. Either remove the person, shrink and desaturate them, or accept that the face is the focal point and
-place the action inside their visual gravity. Do not assume that pointing a model's gaze at a CTA rescues it
-— the face still holds most of the attention.
+clicked. Faces hold attention as well as pass it along, so gaze direction is a *tie-breaker, not a rescue*:
+orienting a face toward the CTA helps at the margin, and it does not repay the attention the face itself
+takes. Fix it in this order — (1) remove the person, (2) shrink and desaturate them, (3) keep them and place
+the action inside their visual gravity with the gaze pointing at it. Reach for step 3 only when the person
+*is* part of the message (a named founder, a real practitioner). Never treat a redirected gaze as licence to
+put a large stock face beside your primary action.
 
 **Colour-only cues are a bug.** Any instruction that depends on colour ("click the blue button") fails for
 colour-blind users, in greyscale, and on badly calibrated screens. Pair colour with position words, icons, or
@@ -279,8 +289,10 @@ this costs more than any layout refinement can recover.
 - Default colour is a muted, brand-tinted neutral. The **only** icons carrying saturation are the active or
   selected ones.
 - No emoji as UI icons, no mixed styles, no multicolour illustrations sitting next to line icons.
-- Simple geometric symbols are recognised at least as fast as detailed artwork and sit far calmer — this is
-  why line icons beat illustrated scenes in feature rows.
+- Prefer simple geometric symbols to detailed artwork in feature rows. A simplified symbol carries fewer
+  competing details, which tends to make it quicker to identify and much quieter next to the text it labels;
+  an illustrated scene competes with the copy it was meant to support. (Directional craft guidance, not a
+  measured finding — if an icon set genuinely aids comprehension, keep it.)
 
 **Photography and figures.**
 - **Imply people rather than depicting them.** Traces of human presence — a hand at the edge of frame, a
@@ -327,7 +339,10 @@ value; fast, bouncy, or repeating motion says energy and urgency.
   no content is *only* revealed by an animation. A page that is blank without JavaScript animation is broken
   for a real group of users and for crawlers.
 - Loading states: prefer calm skeletons over impatient spinners, and start progress indicators a few percent
-  above zero — a bar pinned at 0% reads as stalled.
+  above zero — a bar pinned at 0% reads as stalled. **The bar must still track something real.** Nudging the
+  first paint off zero is presentation; a bar that advances on a timer while nothing is happening is
+  fabricated progress, and it belongs with the fake countdowns in
+  [04 §4](04-persuasion-core.md#4-ethics-where-structuring-ends-and-deception-begins).
 
 ---
 
@@ -392,8 +407,9 @@ opacity shipped — not on the palette swatches.
 - [ ] For each viewport, the intended eye path is named in three steps before design begins.
 - [ ] Exactly one focal element per viewport; one solid primary action, at most one quiet secondary.
 - [ ] Salience audited **locally** — the focal element wins against its own section, not just the palette.
-- [ ] Proximity checked on every heading (closer to its own content than to the block above).
-- [ ] No group larger than four items; larger sets chunked into labelled clusters.
+- [ ] Proximity checked on every heading — space above ≈2× the space below, up to 3× at a section break.
+- [ ] No *comparative* group larger than four items; larger sets chunked into labelled clusters. Scannable
+      (non-choosing) grids may run to six.
 - [ ] Hierarchy built in the order spacing → size → weight → colour, and it survives the greyscale test.
 - [ ] Squint test and five-second test passed at every shipped viewport width, including 390px.
 - [ ] Direction is carried by arrows, lines, or directional words — never by a face competing with the CTA.

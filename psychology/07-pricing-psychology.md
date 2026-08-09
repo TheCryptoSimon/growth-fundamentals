@@ -241,8 +241,10 @@ price for a trust-first brand — see [colour and typography](./06-color-and-typ
 | **Parity** | Matched to a known competitor | Neutralises price as a variable | When you win on another axis and want price off the table |
 
 **The left-digit effect.** Buyers encode magnitude from the leftmost digit onward, so $4.99 is
-filed nearer $4 than $5. The gain is largest when the leftmost digit actually changes and when
-that digit is small — dropping from $200 to $199 moves more than $800 to $799.
+filed nearer $4 than $5. The condition that matters is structural, not a matter of degree: **the
+leftmost digit has to actually change.** $200 → $199 crosses a digit; $209 → $208 does not, and
+buys nothing. Whether the effect is larger at small numbers than large ones is not something this
+pack can tell you — treat the digit crossing as the rule and ignore claims about magnitude.
 
 **Where charm costs you.**
 - It signals "discounted" — corrosive for a premium or expert brand, and unserious for high-stakes
@@ -274,10 +276,14 @@ raises felt gain.
 | Annual savings | Show absolute money saved, not only the percentage | "Save $72 a year" beside "2 months free" |
 | Comparing to a competitor | Compare on the unit where the gap looks larger — but compare all your prices or none | Yearly totals when you're cheaper |
 
-**Percentage or money off — the working rule:** below roughly $100 a percentage usually shows the
-bigger number; above roughly $100 the money amount usually does. Compute both, use whichever is
-larger, and stay consistent at that price level. Exception: at very high prices a large money-off
-figure reminds the buyer how much they're spending — test.
+**Percentage or money off — the working rule:** show whichever number is literally bigger, and it
+is arithmetic, not psychology. 20% off $50 is "20" against "$10", so the percentage wins; 20% off
+$500 is "20" against "$100", so the money wins. The crossover sits wherever the price equals 100
+units of your currency, which means **it is not a dollar rule — recompute it per currency and per
+price point rather than memorising "$100".** Compute both, use the larger, and stay consistent
+within a price level so the site does not look like it is shopping for the flattering framing.
+Exception: at very high prices a large money-off figure also reminds the buyer how much they are
+spending — the arithmetic still says use it, judgement may say otherwise.
 
 **Honesty rails.** Every reframe must be arithmetically exact, and the amount actually charged must
 appear in the same visual block at readable size. A "$1/day" headline hiding an annual commitment

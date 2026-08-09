@@ -150,7 +150,7 @@ the tactic belongs to, and what the inverse looks like at the other pole.
 #### Endowed progress
 - **What.** A task with some progress already granted gets finished more often than the same task started at zero.
 - **Mechanism.** Progress toward a visible goal accelerates near the goal; granting artificial early progress moves the person into the accelerating region and reframes "start" as "continue."
-- **Apply.** Never render 0%. Set up onboarding so step one is already complete and *say why it counts* ("you've already told us the room size — three questions left"). Credit trivial completed actions honestly. Show remaining steps, not total steps.
+- **Apply.** Never render 0%. Set up onboarding so step one is already complete and *say why it counts* ("you've already told us the room size — three questions left"). Credit trivial completed actions honestly. Show remaining steps, not total steps. **The credited step must be one the user actually took** — reframing a real action as progress is presentation; awarding progress for nothing is the flattery in the next line, and a bar that advances while nothing happens is fabricated computation (§4).
 - **Breaks when.** The granted progress is arbitrary and obvious ("you're 40% done!" before anything happened) — the reader spots the flattery and discounts the rest of the page.
 - **Dial.** Both poles.
 
@@ -209,6 +209,7 @@ the tactic belongs to, and what the inverse looks like at the other pole.
 - **What.** Perceived effort in making something raises its perceived value; small *required* effort from the user can also raise the value of what they get.
 - **Mechanism.** Effort is used as a proxy for quality when quality is hard to judge directly. On the user's side, a trivial earned step creates a sense of deservingness.
 - **Apply.** Show the work: process notes, the number of iterations, the craft, genuine enjoyment of making it. For promotions, a trivial redemption step (enter a code, answer one question) can beat a price already discounted on the page. Keep the step **trivial** — real effort destroys the benefit, because the perceived return on effort drops.
+- **The added-step caveat.** Deliberately inserting friction so the reward *feels* better is the one move in this family that fails the disclosure test if you get it wrong. It passes only when the step is genuinely trivial, the offer is identical whether or not the buyer takes it, and no one who skips it pays more. It fails the moment the step becomes a toll — a code the buyer must hunt for, a question that harvests data, a hoop that quietly gates the real price. Test: *if I told them I added this step because it makes the discount feel earned, would they laugh or feel played?* If you cannot say it out loud, remove the step and just show the price.
 - **Breaks when.** Effort theatre (fake loading bars implying computation that isn't happening) is discovered. Fake computation is deception; a genuinely slow honest process shown honestly is not.
 - **Dial.** Trust pole: show craft and provenance. Urgency pole: gamified micro-effort.
 
@@ -247,6 +248,7 @@ the tactic belongs to, and what the inverse looks like at the other pole.
 - **What.** Past a small number of options, choice quality and completion rate fall, and regret rises.
 - **Mechanism.** Small sets are apprehended at a glance; larger sets must be counted and compared, which raises cognitive cost and the fear of choosing wrongly.
 - **Apply.** Rules of thumb: **≤4 items per visible group**; if you have more, **chunk into ≤4 labelled groups of ≤4** so each decision stays small (a 12-item menu becomes "pick a group, then pick an item"). Three pricing tiers, three feature pillars, ≤4 nav sections. Provide a default and a one-line "which is right for me". Prefer 3 spacious options over 4 cramped ones.
+- **What the cap governs.** Options the reader must *choose between*. A set they merely scan — a capability grid, an included-features strip — is not a choice and does not pay the comparison cost; it may run to six ([../build/08-page-architecture-and-section-recipes.md](../build/08-page-architecture-and-section-recipes.md) §3.6). The tell is whether any item carries its own action or price. If it does, it is a choice, and the cap is four.
 - **Breaks when.** The reader arrives with a specific target in mind (searching for a known SKU) or the browsing itself is pleasurable — in both, more options are fine or better.
 - **Dial.** Both poles. Layout mechanics in [05-visual-attention-and-layout.md](05-visual-attention-and-layout.md).
 

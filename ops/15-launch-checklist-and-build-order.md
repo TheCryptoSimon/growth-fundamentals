@@ -29,7 +29,40 @@ converts an invisible upstream error into a visible, cheap stop.
 **Time-boxing rule.** If a phase runs more than double its planned time, the problem is upstream, not in the
 work. Go back one phase and check the gate really passed.
 
----
+## 0.1 The smallest responsible version
+
+This library describes the full method. Most people reading it are one or two people with a few weeks, and
+a plan that cannot be executed gets abandoned wholesale — which is worse than a plan that was cut on purpose.
+So: here is what a first launch may drop, what it may defer, and what it may never drop. Decide this
+explicitly at the start rather than discovering it at 2am the night before launch.
+
+**Never cut — these are not scope, they are the conditions for shipping at all.** The five decisions and a
+written brand brief. One promise with its mechanism. The honesty rails. AA contrast and a keyboard-operable
+conversion path. Legal pages that describe what the site actually does. A working form that has been proven
+to deliver to a human inbox. One conversion event, observed firing. `robots.txt` and `noindex` verified on
+the live domain. Cutting any of these does not save time; it converts a week of work into a liability.
+
+**Cut for v1, add in the first 90 days.** The comparison pages, the glossary, the blog, the interactive
+element, the second and third audience pages, dark mode, the prompt panel, session replay, `llms.txt` (it is
+cheap but nothing depends on it), IndexNow, and every page in tiers 3–6 of the architecture. A four-page site
+that is clear and honest outranks and outconverts a fifteen-page site that is thin — and it is the only kind
+of site two people can keep true.
+
+**The one-week version, in order.** Day 1: the five decisions, written. Day 2: name cleared enough to buy the
+domain, tokens in code, contrast checked. Days 3–4: home page and the one page that carries the offer, both
+against a page brief, both audited at 375px. Day 5: legal pages, forms tested for real, analytics with one
+event observed, schema for `Organization` + `WebPage`, sitemap and robots verified live. Day 6: the critique
+gate — a cold reviewer, two rounds. Day 7: launch by the Phase 6 runbook. Everything else in this pack is
+month two onward.
+
+**The honest trade you are making.** A cut launch reaches fewer queries and carries less proof; it does not
+get to be less true, less accessible, or less measurable. If a deadline is forcing you toward the "never cut"
+list, the deadline is wrong — move it, or launch a smaller site, but do not launch a dishonest or broken one
+and plan to fix it later. Later is where that work goes to die.
+
+**Write the cuts down.** Whatever you defer goes on the accepted-gaps list from Phase 5, with an owner and a
+date, on day one — not in someone's memory. A deferred decision that nobody recorded is indistinguishable
+from an oversight six weeks later.
 
 ## Phase 0 — Decide
 
@@ -50,8 +83,6 @@ then reverse-engineer positioning from a layout they already like. The resulting
 generic, and no amount of later copy editing fixes it — the structure encodes the missing decision.
 
 **Depth:** [../00-START-HERE.md](../00-START-HERE.md), [../brand/01-positioning-and-category.md](../brand/01-positioning-and-category.md).
-
----
 
 ## Phase 1 — Identity and design system
 
@@ -78,8 +109,6 @@ borrowed.
 **Depth:** [../brand/02-identity-archetype-and-naming.md](../brand/02-identity-archetype-and-naming.md),
 [../psychology/06-color-and-typography.md](../psychology/06-color-and-typography.md),
 [../build/09-design-system-and-tokens.md](../build/09-design-system-and-tokens.md).
-
----
 
 ## Phase 2 — The core pages
 
@@ -110,8 +139,6 @@ brief, each passing the same audit.
 **Depth:** [../build/08-page-architecture-and-section-recipes.md](../build/08-page-architecture-and-section-recipes.md),
 [../brand/03-voice-messaging-and-copywriting.md](../brand/03-voice-messaging-and-copywriting.md).
 
----
-
 ## Phase 3 — The search and AI-visibility layer
 
 **Deliverables**
@@ -141,8 +168,6 @@ silently drifts from reality within a fortnight.
 [../search/12-geo-ai-search.md](../search/12-geo-ai-search.md),
 [../search/13-schema-and-technical-wiring.md](../search/13-schema-and-technical-wiring.md).
 
----
-
 ## Phase 4 — Measurement
 
 **Deliverables**
@@ -163,8 +188,6 @@ pixel without updating the privacy page and consent policy in the same change.
 
 **Depth:** [14-measurement-and-experimentation.md](14-measurement-and-experimentation.md).
 
----
-
 ## Phase 5 — Pre-launch QA
 
 Run this as a single sweep, in order, on the actual staging build. Every line is a yes/no you can verify.
@@ -183,7 +206,43 @@ Anything you choose not to fix goes on a written accepted-gaps list — not into
 
 ### 5.2 Content and legal
 
+**Working out what actually applies to you.** The checks below assume you already know which obligations you
+carry. Most first-time founders do not, and "we'll add a privacy policy" is where that gap usually hides.
+This is not legal advice and this pack cannot give you any — but the *questions* are answerable in an
+afternoon, and answering them is what turns a generic template into something defensible:
+
+1. **Where is the operating entity, and where do the visitors come from?** Obligations follow both. Selling
+   into a market usually attaches that market's rules regardless of where you are incorporated.
+2. **What personal data does the site touch, and on what basis?** List every field, every embed, every
+   analytics call, every form processor. If you cannot list them, you cannot describe them, and the privacy
+   page will be fiction. This list *is* the privacy policy's raw material.
+3. **Who is your data processor for each one?** Form handler, email tool, analytics, hosting, chat widget.
+   Most regimes expect you to name categories of recipients; you cannot name what you never inventoried.
+4. **Does the jurisdiction require the legal entity, address, or a registration number on the site?** Several
+   do, and it is usually a footer or imprint obligation with a fixed format.
+5. **Is your category regulated?** Health, finance, legal, insurance, food, children's products, alcohol,
+   crypto, employment — each carries claim restrictions that override every persuasion tactic in this pack.
+   Write those into §13 of the brand brief as hard rails before a word of copy is drafted.
+6. **What are the consumer-facing obligations of the model you chose?** Subscriptions, trials that convert to
+   paid, and distance selling typically carry specific disclosure, cancellation and refund requirements —
+   and they change the copy, not just the terms page.
+
+**Where the pages come from.** A reputable generator or a template from your payment provider is an
+acceptable *starting point* and a poor finishing point: it will describe a generic site, not yours. Redline
+it against the answers above, delete every clause about a thing you do not do, and add every tool from
+question 2 by name. For anything in question 5, or any contract a customer signs, pay a qualified lawyer in
+your jurisdiction — this is the one line item where a few hundred spent early is unambiguously cheaper than
+the alternative.
+
+**The rail this exists to protect.** A privacy policy that does not match the trackers on the page is not a
+paperwork failure, it is a false statement on your website, and it sits on the wrong side of the honesty
+rails in [../00-START-HERE.md](../00-START-HERE.md) exactly like an invented testimonial does.
+
 - [ ] Every claim on the site has a mechanism stated near it and a real source behind it.
+- [ ] The data inventory from question 2 exists as a written list, and the privacy policy matches it item by
+      item — including anything added since the policy was written.
+- [ ] Any regulated-category restriction is recorded in the brand brief and has been checked against the
+      live copy, not just intended.
 - [ ] No placeholder text, no sample testimonials, no logos of organisations that are not customers.
 - [ ] Prices, plan contents, and refund terms on the site match the payment system exactly.
 - [ ] Privacy policy describes the **actual** data flow, including analytics, embeds, and form processing.
@@ -265,8 +324,6 @@ Set the budget before you optimise, then hold it.
 **Gate for phase 5.** Every box above is ticked or listed on the accepted-gaps document with an owner and a
 date. "We will fix that after launch" is acceptable only when it is written down.
 
----
-
 ## Phase 6 — Launch day
 
 Launch is a procedure, not an event. Do it early in your working day, never on a Friday afternoon, and never
@@ -310,8 +367,6 @@ the day before someone leaves for holiday.
 privacy or legal page is wrong, the site is unreachable for a segment of users, or a payment flow charges
 incorrectly. Any of these means revert first and diagnose after.
 
----
-
 ## Phase 7 — The first 30, 60, and 90 days
 
 | Window | Focus | Concrete work | What "good" looks like |
@@ -331,8 +386,6 @@ incorrectly. Any of these means revert first and diagnose after.
 - **Re-run the conversion audit monthly** on the top three pages; drift is real and invisible.
 - **Keep the honesty rails under review.** Growth pressure is exactly when the fake countdown gets proposed.
 
----
-
 ## The ordering rules teams break most often
 
 | Rule | What happens when it is broken |
@@ -346,11 +399,13 @@ incorrectly. Any of these means revert first and diagnose after.
 | Redirect map before switching domains | You lose accumulated search equity permanently |
 | One primary conversion before building CTAs | Every section proposes its own next step and none of them wins |
 
----
-
 ## Apply it
 
+- [ ] The scope was decided deliberately against §0.1 — what is being cut for v1 is written down with an
+      owner and a date, and nothing from the "never cut" list is on it.
 - [ ] The brand brief is complete and a stranger can restate the offer correctly from it alone.
+- [ ] The six legal questions in §5.2 are answered in writing, the data inventory exists, and the privacy
+      policy was redlined against it rather than pasted.
 - [ ] Design tokens exist in code and no page hard-codes a colour or spacing value.
 - [ ] The home page and the offer page were built first and both pass the conversion audit on two viewports.
 - [ ] A page brief exists for every page before it is built.
