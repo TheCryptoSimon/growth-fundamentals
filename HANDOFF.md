@@ -12,8 +12,7 @@ starting from first principles.
 **Step 1 — get the knowledge pack.**
 
 ```bash
-# If you forked or re-hosted this pack, swap the owner for the account that hosts your copy.
-gh repo clone TheCryptoSimon/growth-fundamentals ~/Projects/growth-fundamentals
+git clone https://github.com/TheCryptoSimon/growth-fundamentals.git ~/Projects/growth-fundamentals
 ```
 
 **Step 2 — install the two agent skills.**
