@@ -104,6 +104,9 @@ Every file in the pack appears in one of the tables below.
 | [templates/page-brief.md](templates/page-brief.md) | A one-page spec to hand an agent before it builds any individual page |
 | [templates/llms.txt.example](templates/llms.txt.example) | A starting `llms.txt` for AI answer engines |
 | [templates/robots.txt.example](templates/robots.txt.example) | A starting `robots.txt` with a sane crawler policy |
+| [templates/wordpress/README.md](templates/wordpress/README.md) | The WordPress mechanics: two sitemap generators, virtual `robots.txt`, serving `llms.txt` |
+| [templates/wordpress/llms.txt.example](templates/wordpress/llms.txt.example) | A filled-in `llms.txt` for a WordPress site, plus the rewrite that generates it |
+| [templates/wordpress/sitemap.xml.example](templates/wordpress/sitemap.xml.example) | A correct sitemap index and child sitemap, with the core/Yoast/Rank Math exclusion filters |
 
 ### Skills — make an agent use the pack instead of improvising
 | File | What you get |

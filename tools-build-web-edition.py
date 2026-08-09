@@ -46,14 +46,17 @@ GROUPS = [
         ("templates/page-brief.md", "20", "Page brief"),
         ("templates/llms.txt.example", "21"),
         ("templates/robots.txt.example", "22"),
+        ("templates/wordpress/README.md", "23", "WordPress: the mechanics"),
+        ("templates/wordpress/llms.txt.example", "24", "WordPress: llms.txt"),
+        ("templates/wordpress/sitemap.xml.example", "25", "WordPress: sitemap.xml"),
     ]),
     ("Agent skills", "Drop-in procedures for a coding agent", [
-        ("skills/README.md", "23", "Installing the skills"),
-        ("skills/brand-web-design.skill.md", "24", "Skill: brand web design"),
-        ("skills/growth-search.skill.md", "25", "Skill: growth search"),
+        ("skills/README.md", "26", "Installing the skills"),
+        ("skills/brand-web-design.skill.md", "27", "Skill: brand web design"),
+        ("skills/growth-search.skill.md", "28", "Skill: growth search"),
     ]),
     ("Reference", "What this draws on, and what it does not bundle", [
-        ("reference/README.md", "26", "Sources and honesty note"),
+        ("reference/README.md", "29", "Sources and honesty note"),
     ]),
 ]
 

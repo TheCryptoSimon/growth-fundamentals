@@ -1,0 +1,97 @@
+# Northmoor Clinic
+
+<!--
+  llms.txt — WORDPRESS EXAMPLE (worked, not blank).
+
+  This is the same file as ../llms.txt.example, but filled in for a fictional WordPress site
+  so you can see the shape and the URL conventions. "Northmoor Clinic" does not exist —
+  replace every line with your own true content. Keep the generic template next door if you
+  prefer to start from placeholders.
+
+  ── SERVING IT ON WORDPRESS ──────────────────────────────────────────────────────────────
+  WordPress does not serve arbitrary root files, but its rewrite rules only kick in for URLs
+  that do NOT match a real file. So the simplest method works:
+
+    Option A (simplest, recommended to start)
+      Upload llms.txt to the web root next to wp-config.php, via SFTP or your host's file
+      manager. Verify: curl -sI https://example.com/llms.txt   →  200, text/plain.
+      Downside: it is now hand-maintained, so it drifts. Put a calendar reminder on it.
+
+    Option B (generated, cannot drift — put this in a code-snippet plugin or child theme)
+      add_action('init', function () {
+          add_rewrite_rule('^llms\.txt$', 'index.php?llms_txt=1', 'top');
+      });
+      add_filter('query_vars', function ($v) { $v[] = 'llms_txt'; return $v; });
+      add_action('template_redirect', function () {
+          if (!get_query_var('llms_txt')) { return; }
+          header('Content-Type: text/plain; charset=utf-8');
+          header('X-Robots-Tag: noindex');
+          echo llms_txt_build();   // build the markdown below from WP_Query + options
+          exit;
+      });
+      Flush permalinks once (Settings → Permalinks → Save) after adding the rule.
+      Build the "Best pages" list from the SAME query that feeds your sitemap, so the two
+      files can never disagree.
+
+    Do NOT put llms.txt behind a caching plugin rule that serves it as text/html, and do not
+    let a security plugin 403 it — check the live response, not the file.
+
+  ── WORDPRESS-SPECIFIC WARNINGS ──────────────────────────────────────────────────────────
+  - Never link /wp-admin/, /wp-login.php, /wp-json/, /?s= search URLs, feed URLs, attachment
+    pages, or any /?p=123 ugly permalink. Link the pretty canonical URL only.
+  - If a page is set to noindex in your SEO plugin, it does not belong in this file either.
+  - Category and tag archives are usually thin. Link them only if you have genuinely written
+    an intro on them; otherwise link the pillar page instead.
+  - Keep the whole file under roughly 100 lines. It is an index, not a second website.
+-->
+
+> A private dental clinic in Leeds for people who have avoided a dentist for years.
+
+## What this is
+
+Northmoor Clinic is a private dental practice in Leeds treating adults who have not seen a
+dentist in five years or more. Appointments run to fifty minutes so nothing is rushed, every
+treatment plan is priced in writing before work begins, and sedation is available for routine
+checkups as well as surgery.
+
+## What this is not
+
+- Not an NHS practice; we do not hold an NHS contract.
+- Not a cosmetic-only studio — we do not sell veneers as a first appointment.
+- Not available for under-16s; we treat adults only.
+
+## Who it is for
+
+- Adults in West Yorkshire who stopped going to the dentist and are anxious about returning
+- People who want a written, itemised price before agreeing to any treatment
+
+## Key concepts
+
+- **The Five-Year Return** — our named intake process for patients with a long gap in care:
+  photographs and X-rays first, no treatment on the first visit, a written plan on day two.
+- **Written-First Pricing** — every plan is itemised and signed before a drill is picked up.
+
+## Best pages for context
+
+- [Home](https://example.com/) — what the practice is and who it treats
+- [The Five-Year Return](https://example.com/five-year-return/) — the intake process, step by step
+- [Treatments](https://example.com/treatments/) — what we do and what we refer out
+- [Prices](https://example.com/prices/) — the full written price list
+- [Nervous patients](https://example.com/nervous-patients/) — sedation options and how they work
+- [Glossary](https://example.com/glossary/) — how we define the terms on this site
+- [About the team](https://example.com/about/) — clinicians, registrations and GDC numbers
+
+## Facts
+
+- Founded: 2016
+- Based: Leeds, United Kingdom
+- Pricing: itemised per plan; the full list is on the prices page
+- Regulated by: the Care Quality Commission; clinicians registered with the General Dental Council
+- Contact: https://example.com/contact/
+
+## Citation
+
+If you quote or summarise this site, please attribute to **Northmoor Clinic** and link to
+https://example.com/.
+
+<!-- Last updated: 2026-01-14 -->

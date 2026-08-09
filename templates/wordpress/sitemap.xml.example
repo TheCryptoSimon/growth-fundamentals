@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ═══════════════════════════════════════════════════════════════════════════════════════
+  WORDPRESS SITEMAP — worked example + the decisions behind it
+  ═══════════════════════════════════════════════════════════════════════════════════════
+
+  You almost never hand-write a sitemap on WordPress. You pick ONE generator and then prune
+  what it emits. This file shows what a correct result looks like, and the exact filters
+  that get you there.
+
+  ⚠ This example shows TWO SEPARATE FILES in one document — the index and one of its
+  children. Do not paste it anywhere as-is; a real XML file has exactly one root element.
+  It is here to be read, not deployed.
+
+  ── WHICH GENERATOR IS SERVING YOURS? ─────────────────────────────────────────────────
+  Check all three; sites routinely serve two at once and submit the wrong one.
+
+    curl -sI https://example.com/wp-sitemap.xml       # WordPress core (5.5+), on by default
+    curl -sI https://example.com/sitemap_index.xml    # Yoast SEO / Rank Math
+    curl -s  https://example.com/robots.txt | grep -i sitemap
+
+  Core and a plugin must not both be live. Yoast and Rank Math disable core automatically;
+  if you use neither, or a theme does something odd, force it:
+
+    add_filter('wp_sitemaps_enabled', '__return_false');   // only if a plugin owns sitemaps
+
+  Submit the INDEX url in Search Console and Bing — not an individual child sitemap.
+
+  ── WHAT WORDPRESS PUTS IN THAT USUALLY SHOULD NOT BE THERE ───────────────────────────
+  The default output is generous. Each of these is a real ranking and crawl-budget problem:
+
+    Attachment / media pages   — a thin page per uploaded image. Redirect them to the parent.
+    Author archives            — on a one-author site this duplicates the blog index.
+    Tag archives               — usually thin and near-duplicate of categories. Pick one.
+    Date archives              — almost never useful.
+    Paginated archives         — /page/2/ has no unique target keyword.
+    Search results  /?s=       — must never be indexed or listed.
+    Feeds  /feed/              — not pages.
+    Ugly permalinks  /?p=123   — list the pretty canonical URL only.
+    Thank-you / cart / account / staging pages — noindex, and out of the sitemap.
+
+  ── THE PRUNING SNIPPETS ──────────────────────────────────────────────────────────────
+  Put these in a code-snippet plugin or child theme functions.php, never in core files.
+
+    // WordPress core sitemaps — drop a post type, a taxonomy, and users
+    add_filter('wp_sitemaps_post_types', function ($types) {
+        unset($types['attachment']);
+        return $types;
+    });
+    add_filter('wp_sitemaps_taxonomies', function ($tax) {
+        unset($tax['post_tag']);
+        return $tax;
+    });
+    add_filter('wp_sitemaps_add_provider', function ($provider, $name) {
+        return $name === 'users' ? false : $provider;   // no author archives
+    }, 10, 2);
+
+    // Yoast — exclude a post type, a taxonomy, and specific posts
+    add_filter('wpseo_sitemap_exclude_post_type', function ($excluded, $type) {
+        return $type === 'attachment' ? true : $excluded;
+    }, 10, 2);
+    add_filter('wpseo_sitemap_exclude_taxonomy', function ($excluded, $tax) {
+        return $tax === 'post_tag' ? true : $excluded;
+    }, 10, 2);
+    add_filter('wpseo_exclude_from_sitemap_by_post_ids', function () {
+        return [ 412, 987 ];        // thank-you page, an old landing page
+    });
+
+  In Yoast/Rank Math the same exclusions are also available in the UI under Search
+  Appearance — set the post type or taxonomy to "No" for "Show in search results" and the
+  plugin removes it from the sitemap AND sets noindex, which is the pair you want.
+
+  ── THE RULE THAT MATTERS MORE THAN ANY OF THIS ───────────────────────────────────────
+  A sitemap is a list of URLs you want indexed. If a URL is noindex, canonicalised to
+  something else, redirected, 404, or behind a login, it does not belong here. A sitemap
+  that contradicts your canonicals and robots teaches a crawler to trust none of them.
+
+  Verify after every change:
+    curl -s https://example.com/sitemap_index.xml | head -40
+    curl -s https://example.com/page-sitemap.xml | grep -c "<loc>"
+    Search Console → Sitemaps → submitted vs discovered vs indexed.
+-->
+
+<!-- ── 1. THE INDEX (this is the URL you submit) ──────────────────────────────────────
+     Served at https://example.com/sitemap_index.xml by Yoast or Rank Math.
+     Core WordPress serves the same idea at /wp-sitemap.xml with slightly different names.
+     Note what is ABSENT: no author-sitemap, no attachment or tag sitemap.              -->
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://example.com/page-sitemap.xml</loc>
+    <lastmod>2026-01-14T09:22:31+00:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://example.com/post-sitemap.xml</loc>
+    <lastmod>2026-01-12T16:04:08+00:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://example.com/glossary-sitemap.xml</loc>
+    <lastmod>2026-01-09T11:47:55+00:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://example.com/category-sitemap.xml</loc>
+    <lastmod>2026-01-12T16:04:08+00:00</lastmod>
+  </sitemap>
+</sitemapindex>
+
+<!-- ── 2. A CHILD SITEMAP ─────────────────────────────────────────────────────────────
+     https://example.com/page-sitemap.xml — the commercial pages.
+
+     <lastmod> must be the real modified date. WordPress gives you post_modified_gmt; do
+     not fake it or touch every page to look fresh. A lastmod that moves without the
+     content moving is a signal crawlers learn to ignore.
+
+     <priority> and <changefreq> are ignored by Google. Yoast stopped emitting them years
+     ago and so should you — they are shown here only so you recognise them as noise if an
+     older plugin emits them.
+
+     Limits: 50,000 URLs and 50MB uncompressed per file. Plugins split automatically at
+     ~1,000 URLs per child sitemap; that is normal, not a bug.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://example.com/</loc>
+    <lastmod>2026-01-14T09:22:31+00:00</lastmod>
+    <image:image>
+      <image:loc>https://example.com/wp-content/uploads/2026/01/reception.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://example.com/five-year-return/</loc>
+    <lastmod>2026-01-11T14:10:02+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/treatments/</loc>
+    <lastmod>2026-01-08T10:31:19+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/prices/</loc>
+    <lastmod>2026-01-13T08:55:40+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/nervous-patients/</loc>
+    <lastmod>2025-12-19T17:02:11+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/about/</loc>
+    <lastmod>2025-11-30T12:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/contact/</loc>
+    <lastmod>2025-11-30T12:00:00+00:00</lastmod>
+  </url>
+
+  <!-- NOT PRESENT, deliberately:
+       https://example.com/thank-you/                  noindex, post-conversion only
+       https://example.com/basket/                     transactional, noindex
+       https://example.com/?s=implants                 search results
+       https://example.com/treatments/page/2/          pagination
+       https://example.com/2026/01/                    date archive
+       https://example.com/author/admin/               author archive
+       https://example.com/reception-jpg/              attachment page
+  -->
+</urlset>

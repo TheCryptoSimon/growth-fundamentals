@@ -491,9 +491,16 @@ requires touching the sitemap, the footer and `llms.txt` by hand, the pattern is
   staging domain.
 - Use a glossary custom post type for `DefinedTerm` entries so the archive can generate the
   `DefinedTermSet`.
+- **Sitemaps: make sure only one generator is live.** Core WordPress serves `/wp-sitemap.xml`; Yoast
+  and Rank Math serve `/sitemap_index.xml` and disable core — but a half-configured site runs both,
+  and the default output includes attachment pages, author and date archives, tag archives,
+  pagination and search URLs. Prune it, then submit the index URL only.
 - **Verify logged out.** Caching and optimisation plugins are bypassed for logged-in administrators,
   so a page can look perfect to you and ship broken to visitors. Check every template change in a
   private window or with a plain HTTP fetch.
+
+> Worked WordPress files, with the exclusion filters and the `llms.txt` rewrite rule:
+> [../templates/wordpress/](../templates/wordpress/README.md).
 
 ## Apply it
 
