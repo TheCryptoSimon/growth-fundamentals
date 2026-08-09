@@ -66,10 +66,9 @@ LAYER 3  COMPONENT   --button-primary-bg: var(--action-primary-bg)
 
 - Primitives are named after **what they are** (`--brand-600`, `--space-6`); semantics after **what they do**
   (`--text-muted`, `--border-strong`, `--surface-raised`).
-- Never name a token after where it currently appears (`--hero-bg`) or after its literal colour
-  (`--blue-button`). Both break the first time the design changes.
-- Numeric ramps run low → light, high → dark, at a constant interval (50, 100, 200 … 900) so an agent can
-  interpolate. Use one delimiter and one case, mirrored exactly in any JS/Tailwind/JSON export.
+- Never name a token after where it appears (`--hero-bg`) or after its literal colour (`--blue-button`) —
+  both break the first time the design changes. Numeric ramps run low → light, high → dark at a constant
+  interval (50, 100, 200 … 900), in one case and one delimiter, mirrored in any JS/Tailwind/JSON export.
 - **Components consume Layer 2 only.** A component reaching into `--brand-600` directly is the exact failure
   the taxonomy exists to prevent: it can be neither themed nor rebranded.
 
@@ -204,15 +203,15 @@ Everything else derives. If changing the brand takes twenty edits, the ramp was 
 
 ## 4. Light and dark from one set
 
-**The mechanism:** primitives are absolute facts about colour; semantics are opinions about roles. Themes swap
-opinions, never facts. A dark theme that redefines `--brand-600` has merged the two layers and will drift.
+**The mechanism:** primitives are facts about colour; semantics are opinions about roles. Themes swap opinions,
+never facts. A dark theme that redefines `--brand-600` has merged the layers and will drift.
 
 | Rule | Why |
 |---|---|
-| Reassign Layer 2 only, inside one selector block | The whole theme is auditable in one screen of code |
-| Support both `prefers-color-scheme` and an explicit `data-theme` attribute, with the attribute winning | Respect the OS by default, honour an explicit user choice always |
-| Lower the accent's saturation and raise its lightness for dark | A saturated fill that reads correct on white vibrates on near-black |
-| Replace shadow with border on dark surfaces | Shadows are nearly invisible against dark; elevation must be carried by a lighter surface step or a 1px border |
+| Reassign Layer 2 only, in one selector block | The whole theme is auditable in one screen of code |
+| Support `prefers-color-scheme` **and** an explicit `data-theme` attribute, attribute winning | Respect the OS by default; honour an explicit choice always |
+| Lower the accent's saturation, raise its lightness | A fill that reads correct on white vibrates on near-black |
+| Replace shadow with border on dark surfaces | Shadows are near-invisible on dark; elevation must come from a lighter surface step or a 1px border |
 | Re-run every contrast check in **both** themes | Passing in light says nothing about dark |
 | Set `color-scheme: light dark` on the root | Native controls, scrollbars and form widgets follow the theme |
 
@@ -234,10 +233,10 @@ commonest cause of a site "feeling cluttered" when nothing is individually wrong
   for roughly double ([../psychology/05-visual-attention-and-layout.md](../psychology/05-visual-attention-and-layout.md)).
 
 **Radius.** One radius language across buttons, inputs, cards and images; mixed radii read as unfinished. Nest
-correctly — an inner radius is the outer radius minus the padding, or the corners look wrong.
+correctly — an inner radius is the outer minus the padding, or the corners look wrong.
 
-**Elevation.** Shadows are a hierarchy tool, not decoration. Three levels are enough (resting card, floating
-element, modal). More than three and none of them means anything.
+**Elevation.** A hierarchy tool, not decoration. Three levels is enough (resting card, floating element,
+modal); past three, none of them means anything.
 
 > **Dial.** Calm/premium: larger spacing steps, soft radii (8–14px), shallow diffuse shadows.
 > Energetic/playful: tighter spacing, a committed radius pole (near-0 or heavily rounded, never the middle),
@@ -258,25 +257,25 @@ of forty. Four durations and three curves cover a marketing site.
 | `--ease-standard` / `--ease-enter` / `--ease-exit` | Settling in place / arriving (decelerate) / leaving (accelerate, and faster than it arrived) |
 
 **Non-negotiable:** honour `prefers-reduced-motion`. Collapsing every duration to ~1ms in one media query (as
-in §3) covers it globally without auditing each animation. Never animate a value that shifts the reading
-position of text someone is currently reading.
+in §3) covers it globally without auditing each animation. Never animate anything that shifts the reading
+position of text someone is mid-sentence in.
 
 > **Dial.** Calm: one gentle onset on the focal element per viewport, nothing loops. Energetic: entrance
 > animation, staggered reveals and hover flourishes are on-brand — but a looping, pulsing element is an
 > attention tax the visitor never agreed to pay, and it never belongs on a form.
 
-**Honesty rail.** Motion must not manufacture pressure: no ticking countdown for a deadline that does not
-exist, no fake "others are viewing" animation, no progress bar moving independently of real progress. Animate
-only what is true.
+**Honesty rail.** Motion must not manufacture pressure: no countdown for a deadline that does not exist, no
+fake "others are viewing" ticker, no progress bar moving independently of real progress. Animate only what is
+true.
 
 **Breakpoints.** Four thresholds are plenty: `sm 480 · md 768 · lg 1024 · xl 1280`. Design mobile-first.
 *The gotcha every agent hits:* CSS custom properties **do not work inside `@media` queries**. Keep the numbers
-in one place in the build config (a SCSS map, a Tailwind config, a JS constants file) and restate them in the
-tokens file only as a comment. Two live sources for a breakpoint is a guaranteed drift bug.
+in the build config (a SCSS map, a Tailwind config, a JS constants file) and restate them in the tokens file
+only as a comment. Two live sources for a breakpoint is a guaranteed drift bug.
 
 **Z-index.** Never a bare number. The ladder in §3 uses 100-point gaps so a layer can be inserted without
 renumbering. If you ever need `z-index: 9999`, the ladder is being bypassed and something is about to render
-above your modal.
+over your modal.
 
 ---
 
@@ -291,13 +290,10 @@ The minimum set for a marketing site. Build them in this order — the first fou
 | 3 | **Input + Field** | text · email · textarea · select · checkbox · radio · toggle — each wrapped in a Field with label, help text and error slot |
 | 4 | **Card** | static · linked (whole card clickable) · elevated · bordered |
 | 5 | **Badge / Pill** | neutral · brand · success · warning · danger · info |
-| 6 | **Accordion** | single-open · multi-open |
-| 7 | **Tabs** | horizontal · scrollable on mobile |
-| 8 | **Table** | plain · comparison (feature matrix) |
-| 9 | **Modal / Dialog** | standard · confirm |
-| 10 | **Toast / Inline alert** | success · error · info |
-| 11 | **Nav** | desktop bar · mobile drawer · sticky variant |
-| 12 | **Footer** | full · compact |
+| 6 | **Accordion** + **Tabs** | single-open / multi-open · horizontal, scrollable on mobile |
+| 7 | **Table** | plain · comparison (feature matrix) |
+| 8 | **Modal / Dialog** + **Toast / Inline alert** | standard / confirm · success / error / info |
+| 9 | **Nav** + **Footer** | desktop bar · mobile drawer · sticky · full / compact footer |
 
 **Deliberately absent:** carousels (they hide content and perform poorly), auto-playing video heroes,
 exit-intent popups, countdown timers. Each may be justifiable in a specific case; none belongs in a default
@@ -315,11 +311,9 @@ Every interactive component implements every state marked ✓. "It looks fine" i
 | Checkbox / Radio / Toggle | ✓ | ✓ | ✓ | ✓ | ✓ | — | ✓ |
 | Select | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Card (linked) | ✓ | ✓ | ✓ | ✓ | — | — | — |
-| Accordion header | ✓ | ✓ | ✓ | ✓ | ✓ | — | — |
-| Tab | ✓ | ✓ | ✓ | ✓ | ✓ | — | — |
+| Accordion header / Tab / Nav item | ✓ | ✓ | ✓ | ✓ | ✓ | — | — |
 | Modal | ✓ | — | ✓ (trap) | — | — | ✓ | ✓ |
 | Toast | ✓ | ✓ (pause) | ✓ | — | — | — | ✓ |
-| Nav item | ✓ | ✓ | ✓ | ✓ | ✓ | — | — |
 
 **State rules that catch the usual defects:**
 
@@ -374,15 +368,14 @@ Pass/fail, checked before launch and re-checked in **both** themes.
 | **Keyboard-complete** | Every action operable by keyboard; visible skip-to-content link; logical tab order; no trap except an intentional modal trap Escape releases | Custom dropdowns and `div` buttons |
 | **Motion preference** | `prefers-reduced-motion` honoured globally; nothing conveyed by animation alone | A reveal that leaves content invisible when motion is off |
 | **Colour not sole cue** | Greyscale-screenshot test passes | Red/green status dots with no icon or word |
-| **Zoom 200%** | No horizontal scroll, no clipped content | Fixed-height containers with fixed-px text |
-| **Mobile body size** | Never below 16px | iOS zooms form fields on focus below it |
+| **Zoom 200% · mobile body size** | No horizontal scroll or clipped content at 200%; body text never below 16px | Fixed-height containers with fixed-px text; iOS zooming form fields on focus |
 
 ---
 
 ## 9. Asset system
 
-Assets drift faster than code because they live in design tools. Give them the same treatment: one export
-directory, one naming convention, one rule sheet.
+Assets drift faster than code because they live in design tools. Same treatment: one export directory, one
+naming convention, one rule sheet.
 
 | Asset | Ship | Rules that prevent the usual damage |
 |---|---|---|
@@ -422,7 +415,7 @@ an agent.
 ## 11. Drift prevention
 
 A design system does not decay because someone disagrees with it. It decays because a deadline made one
-hard-coded value cheaper than one new token, twenty times.
+hard-coded value cheaper than one new token — twenty times.
 
 | Rule | In practice |
 |---|---|
@@ -445,9 +438,8 @@ system works. Every patch of the old hue that survives is drift — fix it befor
 |---|---|
 | 1 | Copy §3 into `tokens.css`. Tune hue, chroma, neutral tint, fonts, base size. |
 | 2 | Build a `/styleguide` route that renders every token as a swatch, a size sample and a spacing bar. |
-| 3–4 | Button (all variants + all states), Link, Field + Input, Card. |
-| 5 | Badge, Accordion, Tabs. |
-| 6 | Nav, Footer, Modal, Toast. |
+| 3–4 | Button (every variant, every state), Link, Field + Input, Card. |
+| 5–6 | Badge, Accordion, Tabs, Nav, Footer, Modal, Toast. |
 | 7 | Contrast pass in both themes; keyboard pass with the mouse unplugged; tap-target pass at 375px. |
 | 8 | Write `components.md` and `usage-rules.md`; add the grep gate to CI. |
 

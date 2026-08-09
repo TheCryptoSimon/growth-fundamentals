@@ -11,11 +11,10 @@ names its **purpose**, the **lever** it pulls, what it **must contain**, and how
 energetic/urgent/playful. Decide once and hold it site-wide — mixed cues read as an unstable brand, and
 instability is expensive in exactly the categories where trust is the product. Direction-dependent recipes carry
 a `> Dial.` line stating both ends. **The brief:** no page gets built without a filled
-[../templates/page-brief.md](../templates/page-brief.md) — most scope creep is an under-specified brief.
-
-Three words recur below. A **primary action** is the one thing a page exists to make happen. An **assurance
-line** is microcopy directly under a button that pre-answers the cost or risk of clicking. A **mechanism** is
-the concrete reason a promise is true — a claim without one is decoration.
+[../templates/page-brief.md](../templates/page-brief.md) — most scope creep is an under-specified brief. Three
+words recur below: a **primary action** is the one thing a page exists to make happen; an **assurance line** is
+microcopy under a button that pre-answers the cost or risk of clicking; a **mechanism** is the concrete reason
+a promise is true — a claim without one is decoration.
 
 ## 1. The one-job-per-page rule
 
@@ -29,8 +28,7 @@ inference.
 **How to apply.**
 - Write the job as one sentence before designing: *"This page makes a self-serve buyer start a trial."*
 - One solid button style per viewport; at most one ghost or text secondary beside it.
-- A page needing two jobs is two pages. A page serving two audiences converts neither — split it, or build
-  the self-selection block (§4.9).
+- A page needing two jobs is two pages; a page serving two audiences converts neither — split it, or build the self-selection block (§3.9).
 - Nav, footer, and consent banners count as competing actions. Audit the whole viewport.
 
 ## 2. The site map for a new brand
@@ -50,8 +48,7 @@ Rows 1–4 are the launch set; the rest can land over following weeks without bl
 | **Blog / Insights** | Publish ongoing evidence that the brand knows this domain. | Subscribe / pillar page | 3 |
 | **Changelog / Status** | Prove the thing is alive and maintained (software only). | None — trust artefact | 3 |
 
-**Page-count discipline.** A new brand needs roughly seven to twelve URLs to launch. More than that before
-you have traffic means thin pages competing with each other and nothing ranking. Depth first, breadth later.
+**Page-count discipline.** Seven to twelve URLs at launch. More than that before you have traffic means thin pages competing with each other and nothing ranking — depth first, breadth later.
 
 **The four awkward ones.**
 - **Problem pages** are the highest-leverage type most new brands skip. One page per named pain, titled the
@@ -62,7 +59,6 @@ you have traffic means thin pages competing with each other and nothing ranking.
 - **Glossary entries** are short by design: a one-paragraph direct answer, then context, then a link into
   the relevant product or problem page. [../search/12-geo-ai-search.md](../search/12-geo-ai-search.md) explains
   why answer-first is the shape engines lift.
-- **About** is not autobiography. It answers "why should this team be trusted with this problem," and stops.
 
 URL and hierarchy rules live in [../search/11-seo-fundamentals.md](../search/11-seo-fundamentals.md). Keep the
 folder shape shallow and stable — a URL you change later is a ranking you pay for twice.
@@ -139,9 +135,8 @@ understood reads the pitch as help.
 - The cost of the status quo in the reader's terms — hours, rework, risk, embarrassment.
 - No solution yet. The bridge is one line at the end.
 
-**Fails when** it becomes fear-farming. The line between naming a real cost and manufacturing dread sits at
-truth plus proportion: describe consequences the reader actually faces, at the size they actually are. Inflating
-a mild annoyance into a catastrophe wins a session and loses a customer.
+**Fails when** it becomes fear-farming. The line sits at truth plus proportion: describe consequences the
+reader actually faces, at the size they are. Inflating an annoyance into catastrophe loses the customer.
 
 > **Dial.** Calm end: understated and clinical — the precision is the persuasion. Energetic end: sharper,
 > shorter, more emotional. Neither end justifies invented consequences.
@@ -175,10 +170,9 @@ cards read as an unfinished one, and that judgement transfers to the product.
 - Per card: a concrete verb-led title, one sentence of outcome, and a mechanism clause only where it earns its place. Vivid outcome, light process.
 - Consistent icon treatment, or none at all. Mixed icon styles are worse than no icons.
 
-**Fails when.** Titles are nouns ("Analytics") instead of outcomes ("See which pages lose people"); every
-card is the same length of grey text so the eye has nowhere to land; twelve features appear because the team
-could not choose. Twelve features presented equally communicate none — pick the four that decide the sale and
-move the rest to the product page.
+**Fails when.** Titles are nouns ("Analytics") instead of outcomes ("See which pages lose people"); every card
+is the same length of grey text so the eye has nowhere to land; or twelve features appear because the team
+could not choose — twelve presented equally communicate none, so pick the four that decide the sale.
 
 ### 3.7 The interactive element or open loop
 
@@ -192,9 +186,9 @@ something the product finishes.
 not a canned output; one obvious next action at the moment of the result, when interest peaks; graceful
 degradation, so a static equivalent still communicates the idea if the script fails.
 
-**Fails when.** The interaction costs more effort than the payoff is worth (nine fields for a generic
-number); the result is fake; or the widget is the page's heaviest asset and delays first paint for everyone,
-including the majority who never touch it. Load it after the fold.
+**Fails when.** The interaction costs more effort than the payoff is worth (nine fields for a generic number);
+the result is fake; or the widget is the page's heaviest asset and delays first paint for everyone, including
+the majority who never touch it — load it after the fold.
 
 > **Dial.** Calm end: one quiet, useful instrument — a calculator, a preview, a checker. Energetic end:
 > quizzes, spinners, playful reveals. The rail is identical at both ends: the output must be real.
@@ -271,10 +265,10 @@ and making them scroll violates the expectation they arrived with.
 
 **Must contain.** Three tiers at most for self-serve; past four, comparison becomes work. The intended tier
 centre-stage and visually isolated with an honest label ("Most teams start here"). One CTA per card, only the
-intended tier's button solid. Every difference visible without a click, with identical rows collapsed into an
-"included in every plan" strip rather than repeated as checkmarks. Billing period, currency, and what happens
-after any trial, stated plainly. Number formatting, anchoring, and tier naming belong to
-[../psychology/07-pricing-psychology.md](../psychology/07-pricing-psychology.md) — follow it there.
+intended tier's button solid. Every difference visible without a click, identical rows collapsed into an
+"included in every plan" strip. Billing period, currency, and what happens after a trial, stated plainly.
+Number formatting, anchoring, and tier naming belong to
+[../psychology/07-pricing-psychology.md](../psychology/07-pricing-psychology.md).
 
 **Fails when.** "Contact us" is the only option for a self-serve product; a mandatory fee appears at
 checkout; or a countdown or "3 seats left" badge appears that isn't true. Manufactured scarcity is a lie about
@@ -291,9 +285,8 @@ verbatim. Question-shaped headings also sit close to how people actually query.
 **Must contain.** Six to ten real questions phrased as a person would type them. The direct answer in the
 first sentence, then detail — never preamble first. Answers complete on their own, without the surrounding page
 for context. The same content in the DOM as in the structured data — mismatched markup is a policy violation,
-not a clever trick; wiring is in
-[../search/13-schema-and-technical-wiring.md](../search/13-schema-and-technical-wiring.md). All items rendered
-in HTML even when visually collapsed.
+not a clever trick; wiring is in [../search/13-schema-and-technical-wiring.md](../search/13-schema-and-technical-wiring.md).
+All items rendered in HTML even when visually collapsed.
 
 **Fails when.** It's a second sales pitch in question form; it dodges the question everyone actually asks
 (refunds, cancellation, what it doesn't do); or the accordion loads by script, so crawlers see empty panels.
@@ -308,12 +301,11 @@ freedom-to-choose line: explicitly acknowledging the reader is free to decline r
 close provokes.
 
 **Must contain.** One sentence restating the core outcome — the hero's promise in different words. The same
-primary action with the same label as the header CTA. The assurance line repeated ("Two minutes. No card. Cancel
-any time."). A freedom-to-choose clause ("up to you," "no commitment," "leave whenever"). Nothing else: no new
-features, no last-minute offer, no second button.
+primary action, same label as the header CTA. The assurance line repeated ("Two minutes. No card. Cancel any
+time."). A freedom-to-choose clause ("no commitment," "leave whenever"). Nothing else: no new features, no
+last-minute offer, no second button.
 
-**Fails when** it introduces an idea the reader has no time to process, stacks three actions, or applies
-pressure the brand cannot back up.
+**Fails when** it introduces a new idea, stacks three actions, or applies pressure you cannot back up.
 
 > **Dial.** Calm end: quiet restatement, generous space, gentle language. Energetic end: bolder line, larger
 > button, and deadline framing *only* where a real deadline exists.
@@ -329,8 +321,7 @@ reads as concealment; or it's noisier than the final CTA above it.
 
 ## 4. Forms and input design
 
-Forms are where motivated people quit. Governing idea: the interface does the thinking, and every field is
-either necessary or gone.
+Forms are where motivated people quit. The interface does the thinking; every field is necessary or gone.
 
 | Principle | The rule |
 |---|---|
@@ -350,9 +341,9 @@ either necessary or gone.
 | **Progress** | Multi-step forms show which step this is and how many remain. Never surprise someone with step 5. |
 | **Escape routes** | Offer undo; skip confirmation on easily reversible actions; require deliberate confirmation only for genuinely irreversible ones. |
 
-**Field-count reality check.** Every field is a small tax. The right count for a first contact is almost
-always email alone, or email plus one qualifier. Progressive profiling — asking for the rest once someone is
-already a user — beats a long form that filters out people who would have converted.
+**Field-count reality check.** Every field is a small tax. For a first contact the right count is almost always
+email alone, or email plus one qualifier — progressive profiling beats a long form that filters out people who
+would have converted.
 
 > **Dial.** This barely moves. Calm brands swap alarm-red validation for a calmer caution colour plus an
 > icon; energetic brands can be louder. Everything else is universal.
@@ -363,7 +354,7 @@ Design the small screen first; treat the large screen as the enhanced case. What
 
 - **The fold is roughly a third the size.** Headline, subhead, CTA, assurance line. Everything else waits.
 - **Columns become a stack, and stacking changes the argument's order.** Set the mobile order explicitly rather than accepting whatever the grid emits. A row reading left-to-right on desktop must still make sense read top-to-bottom.
-- **Focal-point count multiplies.** One clear focal element on desktop often becomes three after stacking. Re-audit per breakpoint.
+- **Focal-point count multiplies** — one focal element on desktop becomes three after stacking. Re-audit.
 - **A sticky bottom CTA bar is usually worth its screen cost** — but only one, and it must never cover form fields or the footer's legal links.
 - **Collapse peripheral detail** into accordions, provided the content is in the HTML.
 - **Hover does not exist.** Anything revealed on hover needs a tap equivalent, and pages with click-delay scripts must still respond to the very first tap.
@@ -371,11 +362,10 @@ Design the small screen first; treat the large screen as the enhanced case. What
 
 ## 6. Speed is a conversion and a trust variable
 
-**What it is.** Load performance is not an engineering vanity metric. Slow pages lose people before the
-argument starts, and a sluggish interface is read as evidence of a sloppy product.
-
-**Mechanism.** Waiting costs attention and raises irritation, and irritation gets misattributed to whatever is
-on screen. The fluency effect that makes clear copy feel truer makes a fast interface feel competent.
+**What it is, and why.** Load performance is not an engineering vanity metric: slow pages lose people before
+the argument starts, and a sluggish interface is read as evidence of a sloppy product. Waiting costs attention
+and raises irritation, and irritation gets misattributed to whatever is on screen — while the same fluency
+effect that makes clear copy feel truer makes a fast interface feel competent.
 
 **Targets** — Google's published Core Web Vitals thresholds, on real devices at the 75th percentile:
 
@@ -451,7 +441,7 @@ honest FAQ, and neither invents proof or urgency — those three are not dial-de
 - [10-conversion-audit-checklist.md](10-conversion-audit-checklist.md) — the pass/fail gate for everything above
 - [../psychology/04-persuasion-core.md](../psychology/04-persuasion-core.md) — the levers each recipe pulls
 - [../psychology/05-visual-attention-and-layout.md](../psychology/05-visual-attention-and-layout.md) — focal points, salience, scanning
-- [../psychology/06-color-and-typography.md](../psychology/06-color-and-typography.md) — the materials these sections are made of
+- [../psychology/06-color-and-typography.md](../psychology/06-color-and-typography.md) — the materials these sections use
 - [../psychology/07-pricing-psychology.md](../psychology/07-pricing-psychology.md) — how to set and present the number
 - [../brand/03-voice-messaging-and-copywriting.md](../brand/03-voice-messaging-and-copywriting.md) — the words that fill these slots
 - [../search/11-seo-fundamentals.md](../search/11-seo-fundamentals.md) — URL structure, internal linking, page mapping
