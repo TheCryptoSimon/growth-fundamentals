@@ -1,0 +1,91 @@
+// app/sitemap.ts — App Router, Next.js 13.3+
+//
+// Next generates /sitemap.xml from this file at build time. Because it reads the registry,
+// adding a page to lib/registry.ts is the only step; the sitemap cannot fall behind and can
+// never list a page you set to noindex.
+//
+// ── SERVING ──────────────────────────────────────────────────────────────────────────────
+//   app/sitemap.ts            →  https://example.com/sitemap.xml
+//   app/robots.ts             →  https://example.com/robots.txt
+// Do NOT also put a static sitemap.xml in public/ — a file in public/ wins and you will
+// spend an afternoon wondering why your edits do nothing.
+//
+// ── DYNAMIC ROUTES ───────────────────────────────────────────────────────────────────────
+// If pages come from a CMS or database, make this function async and await the fetch. The
+// registry pattern still applies: fetch once, and let sitemap, llms.txt and the footer all
+// read the same result.
+//
+// ── OVER 50,000 URLS ─────────────────────────────────────────────────────────────────────
+// Export generateSitemaps() alongside this and Next emits /sitemap/0.xml, /sitemap/1.xml …
+// under an index. Below 50k, ignore it.
+//
+//   export async function generateSitemaps() {
+//     return [{ id: 0 }, { id: 1 }]
+//   }
+//   export default function sitemap({ id }: { id: number }): MetadataRoute.Sitemap { … }
+//
+// ── PRIORITY AND CHANGEFREQUENCY ─────────────────────────────────────────────────────────
+// Google ignores both. They are emitted below only because Next's type allows them and some
+// smaller crawlers still read them; if you prefer a lean file, delete those two lines. What
+// actually matters is lastModified being TRUE. A lastModified that moves without the content
+// moving is a signal crawlers learn to discount.
+
+import type { MetadataRoute } from 'next'
+import { indexablePages, absoluteUrl } from '@/lib/registry'
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return indexablePages().map((page) => ({
+    url: absoluteUrl(page.path),
+    lastModified: new Date(page.lastModified),
+    changeFrequency: page.kind === 'article' ? 'monthly' : 'yearly',
+    priority: page.priority === 1 ? 1.0 : page.priority === 2 ? 0.7 : 0.4,
+  }))
+}
+
+// ═════════════════════════════════════════════════════════════════════════════════════════
+// app/robots.ts — the companion file. Shown here so the pair stays together; put it in its
+// own file in your project.
+// ═════════════════════════════════════════════════════════════════════════════════════════
+//
+// import type { MetadataRoute } from 'next'
+// import { SITE_URL } from '@/lib/registry'
+//
+// export default function robots(): MetadataRoute.Robots {
+//   return {
+//     rules: [
+//       {
+//         userAgent: '*',
+//         allow: '/',
+//         // Never let a private surface into search or into an AI answer.
+//         disallow: ['/api/', '/app/', '/account/', '/admin/', '/thank-you', '/*?*utm_'],
+//       },
+//       // Answer engines that fetch a page live to cite it. Allowing these is how you get
+//       // quoted. Decide each one deliberately.
+//       { userAgent: 'OAI-SearchBot', allow: '/' },
+//       { userAgent: 'PerplexityBot', allow: '/' },
+//       { userAgent: 'ClaudeBot', allow: '/' },
+//       // Training crawlers are a SEPARATE decision from the search bots above. Blocking
+//       // them does not remove you from live-search answers; allowing them does not buy a
+//       // citation. Uncomment only if you have decided, and write down why.
+//       // { userAgent: 'GPTBot', allow: '/' },
+//       // { userAgent: 'Google-Extended', allow: '/' },
+//       // { userAgent: 'CCBot', allow: '/' },
+//     ],
+//     sitemap: `${SITE_URL}/sitemap.xml`,
+//     host: SITE_URL,
+//   }
+// }
+
+// ═════════════════════════════════════════════════════════════════════════════════════════
+// VERIFY — after every deploy that adds or renames a URL
+// ═════════════════════════════════════════════════════════════════════════════════════════
+//
+//   curl -s https://example.com/sitemap.xml | grep -c "<loc>"
+//   curl -s https://example.com/robots.txt
+//   # every listed URL must return 200 and be self-canonical:
+//   curl -s https://example.com/sitemap.xml \
+//     | grep -o '<loc>[^<]*' | sed 's/<loc>//' \
+//     | while read -r u; do printf '%s %s\n' "$(curl -s -o /dev/null -w '%{http_code}' "$u")" "$u"; done
+//
+// Then: Search Console → Sitemaps → submit /sitemap.xml once. Re-ping IndexNow on each
+// content deploy (see the pack's search/13, §11).

@@ -49,14 +49,18 @@ GROUPS = [
         ("templates/wordpress/README.md", "23", "WordPress: the mechanics"),
         ("templates/wordpress/llms.txt.example", "24", "WordPress: llms.txt"),
         ("templates/wordpress/sitemap.xml.example", "25", "WordPress: sitemap.xml"),
+        ("templates/nextjs/README.md", "26", "Next.js: the mechanics"),
+        ("templates/nextjs/registry.ts.example", "27", "Next.js: the page registry"),
+        ("templates/nextjs/sitemap.ts.example", "28", "Next.js: sitemap.ts + robots.ts"),
+        ("templates/nextjs/llms.txt-route.ts.example", "29", "Next.js: llms.txt route"),
     ]),
     ("Agent skills", "Drop-in procedures for a coding agent", [
-        ("skills/README.md", "26", "Installing the skills"),
-        ("skills/brand-web-design.skill.md", "27", "Skill: brand web design"),
-        ("skills/growth-search.skill.md", "28", "Skill: growth search"),
+        ("skills/README.md", "30", "Installing the skills"),
+        ("skills/brand-web-design.skill.md", "31", "Skill: brand web design"),
+        ("skills/growth-search.skill.md", "32", "Skill: growth search"),
     ]),
     ("Reference", "What this draws on, and what it does not bundle", [
-        ("reference/README.md", "29", "Sources and honesty note"),
+        ("reference/README.md", "33", "Sources and honesty note"),
     ]),
 ]
 

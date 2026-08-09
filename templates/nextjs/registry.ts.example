@@ -1,0 +1,166 @@
+// lib/registry.ts — THE SINGLE SOURCE OF TRUTH
+//
+// ─────────────────────────────────────────────────────────────────────────────────────────
+// This is the load-bearing file. Everything machine-readable derives from it: the sitemap,
+// llms.txt, the footer's internal links, and the per-page metadata. Add a page here and it
+// appears everywhere it should. Forget to add it and it is invisible everywhere — which is
+// the correct failure mode, because "half-registered" is what causes a sitemap to disagree
+// with your canonicals.
+//
+// The rule the pack states in search/13: derive everything from one registry so nothing can
+// drift. This file is that rule in code. Do not hand-maintain a second list anywhere.
+// ─────────────────────────────────────────────────────────────────────────────────────────
+
+export const SITE_URL = 'https://example.com'
+export const SITE_NAME = 'Northmoor Clinic'
+
+// The canonical entity paragraph. 40-60 words. Byte-identical to the schema Organization
+// description, the About page opener, llms.txt, and every third-party profile. If you change
+// it, change it in this one place and let the rest follow.
+export const SITE_DESCRIPTION =
+  'Northmoor Clinic is a private dental practice in Leeds treating adults who have not seen ' +
+  'a dentist in five years or more. Appointments run to fifty minutes, every treatment plan ' +
+  'is priced in writing before work begins, and sedation is available for routine checkups ' +
+  'as well as surgery.'
+
+export type PageKind =
+  | 'home'
+  | 'commercial'   // the money pages
+  | 'pain'         // "how to stop X" — usually the strongest converters
+  | 'audience'     // one per segment, genuinely written for them
+  | 'comparison'   // "X vs Y", "best X", "X alternative"
+  | 'glossary'     // definitional intent, one term per URL
+  | 'article'      // the informational blog that links UP to commercial pages
+  | 'legal'        // indexable but never in llms.txt
+
+export interface RegistryEntry {
+  /** Path with a leading slash, no trailing slash except '/'. This IS the canonical. */
+  path: string
+  kind: PageKind
+  /** ONE primary keyword. Two pages must never share one — that is cannibalisation. */
+  primaryKeyword: string
+  /** <title>. Captures the keyword. 50-60 chars. */
+  title: string
+  /** <meta name="description">. Written to earn the click, not to repeat the title. */
+  description: string
+  /** Real content-modified date, ISO. Do NOT bump it to look fresh. */
+  lastModified: string
+  /** Relative weight for internal linking and llms.txt ordering. 1 = highest. */
+  priority: 1 | 2 | 3
+  /** Include in llms.txt. Legal, thank-you and utility pages: false. */
+  inLlmsTxt: boolean
+  /** Exclude from the sitemap AND set noindex. The two must always agree. */
+  noindex?: boolean
+  /** Named frameworks this page defines, if any. Feeds the llms.txt concepts block. */
+  concepts?: { name: string; definition: string }[]
+}
+
+export const PAGES: RegistryEntry[] = [
+  {
+    path: '/',
+    kind: 'home',
+    primaryKeyword: 'private dentist leeds',
+    title: 'Private Dentist in Leeds | Northmoor Clinic',
+    description:
+      'A private dental practice for adults who have not seen a dentist in years. Fifty-minute ' +
+      'appointments, written prices before any treatment, sedation available.',
+    lastModified: '2026-01-14',
+    priority: 1,
+    inLlmsTxt: true,
+  },
+  {
+    path: '/five-year-return',
+    kind: 'commercial',
+    primaryKeyword: 'dentist after years of not going',
+    title: 'Going Back to the Dentist After Years | The Five-Year Return',
+    description:
+      'Our intake process for adults with a long gap in care: photographs and X-rays first, no ' +
+      'treatment on the first visit, a written plan on day two.',
+    lastModified: '2026-01-11',
+    priority: 1,
+    inLlmsTxt: true,
+    concepts: [
+      {
+        name: 'The Five-Year Return',
+        definition:
+          'Our intake process for patients with a long gap in care: assessment first, no ' +
+          'treatment on visit one, a written plan on day two.',
+      },
+    ],
+  },
+  {
+    path: '/nervous-patients',
+    kind: 'pain',
+    primaryKeyword: 'dentist for nervous patients',
+    title: 'Dentist for Nervous Patients in Leeds | Sedation Options',
+    description:
+      'What sedation actually feels like, who it suits, what it costs, and how to stop an ' +
+      'appointment at any point.',
+    lastModified: '2025-12-19',
+    priority: 1,
+    inLlmsTxt: true,
+  },
+  {
+    path: '/prices',
+    kind: 'commercial',
+    primaryKeyword: 'private dental prices leeds',
+    title: 'Private Dental Prices in Leeds | Full Written Price List',
+    description: 'Every treatment, itemised, with what is and is not included. No estimates by phone.',
+    lastModified: '2026-01-13',
+    priority: 1,
+    inLlmsTxt: true,
+  },
+  {
+    path: '/glossary/dental-sedation',
+    kind: 'glossary',
+    primaryKeyword: 'what is dental sedation',
+    title: 'What Is Dental Sedation? | Northmoor Clinic Glossary',
+    description: 'A plain definition of dental sedation, the three levels, and what each one means for you.',
+    lastModified: '2026-01-09',
+    priority: 2,
+    inLlmsTxt: true,
+  },
+  {
+    path: '/privacy',
+    kind: 'legal',
+    primaryKeyword: 'northmoor clinic privacy policy',
+    title: 'Privacy Policy | Northmoor Clinic',
+    description: 'How we handle your data.',
+    lastModified: '2025-11-30',
+    priority: 3,
+    inLlmsTxt: false,
+  },
+  {
+    path: '/thank-you',
+    kind: 'legal',
+    primaryKeyword: 'n/a',
+    title: 'Thank you',
+    description: 'Booking received.',
+    lastModified: '2025-11-30',
+    priority: 3,
+    inLlmsTxt: false,
+    noindex: true, // ← excluded from the sitemap by the same flag. They can never disagree.
+  },
+]
+
+// ── Derived views. Nothing outside this file should filter PAGES by hand. ─────────────────
+
+export const indexablePages = () => PAGES.filter((p) => !p.noindex)
+export const llmsTxtPages = () =>
+  PAGES.filter((p) => p.inLlmsTxt && !p.noindex).sort((a, b) => a.priority - b.priority)
+export const conceptList = () => PAGES.flatMap((p) => p.concepts ?? [])
+export const absoluteUrl = (path: string) => new URL(path, SITE_URL).toString()
+
+/** Guard against the one mistake that silently ruins a site. Run it in a test. */
+export function assertNoCannibalisation(): void {
+  const seen = new Map<string, string>()
+  for (const p of indexablePages()) {
+    if (p.kind === 'legal') continue
+    const key = p.primaryKeyword.toLowerCase().trim()
+    const owner = seen.get(key)
+    if (owner) {
+      throw new Error(`Keyword "${key}" is claimed by both ${owner} and ${p.path}`)
+    }
+    seen.set(key, p.path)
+  }
+}

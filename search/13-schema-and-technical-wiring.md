@@ -499,8 +499,11 @@ requires touching the sitemap, the footer and `llms.txt` by hand, the pattern is
   so a page can look perfect to you and ship broken to visitors. Check every template change in a
   private window or with a plain HTTP fetch.
 
-> Worked WordPress files, with the exclusion filters and the `llms.txt` rewrite rule:
-> [../templates/wordpress/](../templates/wordpress/README.md).
+> Worked files for both common stacks:
+> [../templates/wordpress/](../templates/wordpress/README.md) (exclusion filters, the virtual
+> `robots.txt`, the `llms.txt` rewrite rule) and
+> [../templates/nextjs/](../templates/nextjs/README.md) (the typed registry, `app/sitemap.ts`,
+> `app/robots.ts`, `app/llms.txt/route.ts`, and the metadata helper).
 
 ## Apply it
 

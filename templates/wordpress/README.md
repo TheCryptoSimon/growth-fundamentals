@@ -10,7 +10,8 @@ first for the method; this folder is only the WordPress mechanics.
 | [sitemap.xml.example](sitemap.xml.example) | A correct sitemap index and child sitemap, with the exclusion filters for core, Yoast and Rank Math, and the list of URLs WordPress adds that should not be there |
 
 The blank, stack-agnostic versions live one level up: [../llms.txt.example](../llms.txt.example)
-and [../robots.txt.example](../robots.txt.example).
+and [../robots.txt.example](../robots.txt.example). The Next.js equivalents are in
+[../nextjs/](../nextjs/README.md).
 
 ## The three WordPress traps
 

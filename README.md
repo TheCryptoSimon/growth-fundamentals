@@ -107,6 +107,10 @@ Every file in the pack appears in one of the tables below.
 | [templates/wordpress/README.md](templates/wordpress/README.md) | The WordPress mechanics: two sitemap generators, virtual `robots.txt`, serving `llms.txt` |
 | [templates/wordpress/llms.txt.example](templates/wordpress/llms.txt.example) | A filled-in `llms.txt` for a WordPress site, plus the rewrite that generates it |
 | [templates/wordpress/sitemap.xml.example](templates/wordpress/sitemap.xml.example) | A correct sitemap index and child sitemap, with the core/Yoast/Rank Math exclusion filters |
+| [templates/nextjs/README.md](templates/nextjs/README.md) | The Next.js App Router mechanics: the metadata helper, JSON-LD, OG images, and four traps |
+| [templates/nextjs/registry.ts.example](templates/nextjs/registry.ts.example) | The typed page registry every other file derives from, with a cannibalisation guard |
+| [templates/nextjs/sitemap.ts.example](templates/nextjs/sitemap.ts.example) | `app/sitemap.ts` + `app/robots.ts` generated from the registry |
+| [templates/nextjs/llms.txt-route.ts.example](templates/nextjs/llms.txt-route.ts.example) | `app/llms.txt/route.ts` generated from the same registry |
 
 ### Skills — make an agent use the pack instead of improvising
 | File | What you get |

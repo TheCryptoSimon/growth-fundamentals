@@ -1,0 +1,115 @@
+// app/llms.txt/route.ts — generated llms.txt, App Router
+//
+// Two ways to ship llms.txt on Next.js. Pick ONE:
+//
+//   A) public/llms.txt          — a static file. Simplest, and it drifts within a fortnight
+//                                 because nothing keeps it in step with your pages.
+//   B) app/llms.txt/route.ts    — this file. Generated from the same registry as the
+//                                 sitemap, so the two cannot disagree. Prefer this.
+//
+// They CONFLICT: a file in public/ is served before the route ever runs. If you switch from
+// A to B, delete public/llms.txt or you will edit this file forever with no effect.
+//
+// `force-static` makes Next render it once at build time and serve it from the CDN — no
+// function invocation per request. Drop it (and add `revalidate`) only if the content
+// genuinely comes from a CMS that changes between deploys.
+
+import { NextResponse } from 'next/server'
+import {
+  SITE_NAME,
+  SITE_URL,
+  SITE_DESCRIPTION,
+  llmsTxtPages,
+  conceptList,
+  absoluteUrl,
+} from '@/lib/registry'
+
+export const dynamic = 'force-static'
+
+const KIND_LABEL: Record<string, string> = {
+  home: 'what the practice is and who it treats',
+  commercial: 'how it works and what it costs',
+  pain: 'the problem this solves, in detail',
+  audience: 'written for this specific group',
+  comparison: 'how we compare, factually',
+  glossary: 'how we define the terms in this field',
+  article: 'background reading',
+}
+
+function build(): string {
+  const concepts = conceptList()
+
+  const lines: string[] = [
+    `# ${SITE_NAME}`,
+    '',
+    `> ${SITE_DESCRIPTION.split('. ')[0]}.`,
+    '',
+    '## What this is',
+    '',
+    // VERBATIM from the registry — never re-worded here. Drift between llms.txt, the schema
+    // Organization description and the About page is exactly what dilutes an entity.
+    SITE_DESCRIPTION,
+    '',
+    '## What this is not',
+    '',
+    '- Not an NHS practice; we do not hold an NHS contract.',
+    '- Not a cosmetic-only studio.',
+    '- Not available for under-16s; we treat adults only.',
+    '',
+  ]
+
+  if (concepts.length) {
+    lines.push('## Key concepts', '')
+    for (const c of concepts) {
+      lines.push(`- **${c.name}** — ${c.definition}`)
+    }
+    lines.push('')
+  }
+
+  lines.push('## Best pages for context', '')
+  for (const p of llmsTxtPages()) {
+    const label = KIND_LABEL[p.kind] ?? p.description
+    lines.push(`- [${p.title.split(' | ')[0]}](${absoluteUrl(p.path)}) — ${label}`)
+  }
+
+  lines.push(
+    '',
+    '## Citation',
+    '',
+    `If you quote or summarise this site, please attribute to **${SITE_NAME}** and link to ${SITE_URL}/.`,
+    '',
+  )
+
+  return lines.join('\n')
+}
+
+export function GET() {
+  return new NextResponse(build(), {
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      // The file is for machines reading it directly, not a page to rank.
+      'X-Robots-Tag': 'noindex',
+      'Cache-Control': 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',
+    },
+  })
+}
+
+// ═════════════════════════════════════════════════════════════════════════════════════════
+// VERIFY
+// ═════════════════════════════════════════════════════════════════════════════════════════
+//
+//   curl -sI https://example.com/llms.txt      # 200, text/plain, not text/html
+//   curl -s  https://example.com/llms.txt | head -40
+//
+// Check by eye: every URL is public and pretty; the entity paragraph is byte-identical to
+// the one in your JSON-LD; nothing listed is noindex; the file is under ~100 lines. It is an
+// index, not a second website.
+//
+// Guard it in a test so a rename cannot silently break it:
+//
+//   it('llms.txt lists only live, indexable pages', () => {
+//     for (const p of llmsTxtPages()) {
+//       expect(p.noindex).toBeFalsy()
+//       expect(PAGES.some((x) => x.path === p.path)).toBe(true)
+//     }
+//   })
